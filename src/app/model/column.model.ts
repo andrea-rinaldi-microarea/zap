@@ -15,9 +15,15 @@ export enum Type {
 
 export class Column {
     constructor(
-        public name: string,
-        public type: Type,
-        public length: number
+        public name?: string,
+        public type?: Type,
+        public length?: number
     )
     {}
+
+    assign(column: Column) {
+        this.name = column.name;
+        this.type = column.type;
+        this.length = column.length;
+    }
 }

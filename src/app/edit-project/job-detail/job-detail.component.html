@@ -1,12 +1,42 @@
-<div class="row">
-  <!-- <form class="col-12 form-inline">
-    <label for="targetEntityName" class="col-3 col-form-label">Target Entity</label>
-    <input type="text" class="form-control col-7" name="targetEntityName" id="targetEntityName" [(ngModel)]="currJobService.job.targetEntityName">
-  </form> -->
+<div class="row mb-2">
   <form class="col-12 form-inline">
       <label for="targetEntity" class="col-3 col-form-label">Target Entity</label>
-      <select class="form-control col-7" name="targetEntity" id="targetEntity" [(ngModel)]="currJobService.job.targetEntityName">
+      <select class="form-control col-7" name="targetEntity" id="targetEntity" (ngModelChange)="onTargetEntityChanged($event)" [(ngModel)]="currJobService.job.targetEntityName">
         <option *ngFor="let entity of entitiesService.entities">{{entity.name}}</option>
       </select>
   </form>
+</div>
+<div class="row">
+  <div class="col-12">
+    <table class="table table-sm">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">Column Name</th>
+          <th scope="col">Type</th>
+          <th scope="col">Length</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let mapping of currJobService.job.mappings">
+          <td>{{mapping.targetColumn.name}}</td>
+          <td>{{mapping.targetColumn.type}}</td>
+          <td>{{mapping.targetColumn.length}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="row">
+  <div *ngIf="!add" class="col-1">
+      <button class="btn btn-outline-success" [disabled]="!currJobService.job.targetEntityName" (click)="add=!add;onPrepareEntity()"><span class="oi oi-plus" aria-hidden="true"></span></button>
+  </div>
+  <div *ngIf="add" class="col-8">
+    <form class="form-inline">
+      <select class="form-control col-9" name="targetColumn" id="targetColumn" [(ngModel)]="selectedColumnName">
+        <option *ngFor="let column of entity.columns">{{column.name}}</option>
+      </select>
+      <button class="btn btn-outline-success col-1 ml-1" [disabled]="!selectedColumnName"(click)="add=!add;onAddColumn()"><span class="oi oi-check"></span></button>
+      <button class="btn btn-outline-secondary col-1 ml-1" (click)="add=!add"><span class="oi oi-x"></span></button>
+    </form>
+  </div>
 </div>

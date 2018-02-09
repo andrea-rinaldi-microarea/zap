@@ -17,7 +17,8 @@ export class JobsListComponent implements OnInit {
   }
 
   onAddJob() {
-    this.projectService.theProject.jobs.push(new Job());
+    var n: number = this.projectService.theProject.jobs.push(new Job());
+    this.currJobService.job = this.projectService.theProject.jobs[n - 1];
   }
 
   onDeleteJob(index: number) {
