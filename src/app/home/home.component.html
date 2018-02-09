@@ -1,27 +1,32 @@
 <div>
-  <div *ngIf="!new">
-    <button class="btn btn-success" (click)="new=!new"><span class="oi oi-plus" aria-hidden="true"></span>&nbsp;Create a new Project</button>
-    <button class="btn btn-primary" (click)="onOpen()"><span class="oi oi-external-link"></span>&nbsp;Open a Project</button>
-    <br>
-    <p>Recent Projects:</p>
-    <hr>
+  <div class="row">
+    <div *ngIf="!new" class="col-12">
+      <button class="btn btn-success" (click)="new=!new"><span class="oi oi-plus" aria-hidden="true"></span>&nbsp;Create a new Project</button>
+      <button class="btn btn-primary" (click)="onOpen()"><span class="oi oi-external-link"></span>&nbsp;Open a Project</button>
+    </div>
+    <div *ngIf="new" class="col-8">
+      <form>
+        <div class="row">
+          <label for="project-name" class="col-sm-3 col-form-label">Project name</label>
+          <div class="col-7">
+              <div class="input-group mb-3">
+                  <input type="text" class="form-control" name="projectName" id="project-name" [(ngModel)]="projectName">
+                  <div class="input-group-append">
+                    <span class="input-group-text"><span class="oi oi-x" role="button" (click)="new=!new"></span></span>
+                  </div>
+              </div>
+          </div>
+          <div class="col-">
+              <button class="btn btn-success" (click)="onCreate()" [disabled]="projectName ===''">Create</button>
+          </div>
+        </div>
+      </form>
+    </div>  
   </div>
-  <div *ngIf="new">
-    <form>
-      <div class="form-group row">
-        <label for="project-name" class="col-sm-2 col-form-label">Project name</label>
-        <div class="col-sm-8">
-            <div class="input-group mb-3">
-                <input type="text" class="form-control" id="project-name">
-                <div class="input-group-append">
-                  <span class="input-group-text"><span class="oi oi-x" role="button" (click)="new=!new"></span></span>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-2">
-            <button class="btn btn-success" (click)="onOpen()"[disabled]="true">Create</button>
-        </div>
+  <div class="row">
+    <div class="col-12">
+        <hr>
+        <p>Recent Projects:</p>
       </div>
-    </form>
-  </div>  
+  </div>
 </div>

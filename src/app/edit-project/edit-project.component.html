@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-12">
+      <p>
+          Project {{projectService.theProject.name}}
+        </p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-4">
+    <zap-jobs-list></zap-jobs-list> 
+  </div>  
+  <div class="col-8" *ngIf="currJobService.job">
+    <zap-job-detail></zap-job-detail>
+  </div>  
+</div>
+<nav class="navbar fixed-bottom navbar-light bg-light">
+  <div></div>
+  <form class="form-inline">
+      <button class="btn btn-success mr-2" (click)="onSave()"><span class="oi oi-check"></span>&nbsp;Save and Close</button>
+      <button class="btn btn-default" (click)="onClose()"><span class="oi oi-x"></span>&nbsp;Discard</button>
+  </form>
+</nav>

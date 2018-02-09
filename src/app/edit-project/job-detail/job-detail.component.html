@@ -1,0 +1,12 @@
+<div class="row">
+  <!-- <form class="col-12 form-inline">
+    <label for="targetEntityName" class="col-3 col-form-label">Target Entity</label>
+    <input type="text" class="form-control col-7" name="targetEntityName" id="targetEntityName" [(ngModel)]="currJobService.job.targetEntityName">
+  </form> -->
+  <form class="col-12 form-inline">
+      <label for="targetEntity" class="col-3 col-form-label">Target Entity</label>
+      <select class="form-control col-7" name="targetEntity" id="targetEntity" [(ngModel)]="currJobService.job.targetEntityName">
+        <option *ngFor="let entity of entitiesService.entities">{{entity.name}}</option>
+      </select>
+  </form>
+</div>

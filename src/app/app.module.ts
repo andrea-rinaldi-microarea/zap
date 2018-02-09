@@ -1,11 +1,16 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { NewProjectComponent } from './new-project/new-project.component';
+import { EditProjectComponent } from './edit-project/edit-project.component';
+import { ProjectService } from './services/project.service';
+import { JobsListComponent } from './edit-project/jobs-list/jobs-list.component';
+import { JobDetailComponent } from './edit-project/job-detail/job-detail.component';
+import { EntitiesService } from './services/entities.service';
 
 const ROUTES = [
   {
@@ -18,8 +23,8 @@ const ROUTES = [
     component: HomeComponent
   },
   {
-    path: 'new',
-    component: NewProjectComponent
+    path: 'edit',
+    component: EditProjectComponent
   }
 ];
 
@@ -27,13 +32,16 @@ const ROUTES = [
   declarations: [
     AppComponent,
     HomeComponent,
-    NewProjectComponent
+    EditProjectComponent,
+    JobsListComponent,
+    JobDetailComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [],
+  providers: [ProjectService, EntitiesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
