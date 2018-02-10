@@ -1,3 +1,4 @@
+import { InputStreamService } from './services/input-stream.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
@@ -11,6 +12,7 @@ import { ProjectService } from './services/project.service';
 import { JobsListComponent } from './edit-project/jobs-list/jobs-list.component';
 import { JobDetailComponent } from './edit-project/job-detail/job-detail.component';
 import { EntitiesService } from './services/entities.service';
+import { InputStreamComponent } from './edit-project/input-stream/input-stream.component';
 
 const ROUTES = [
   {
@@ -34,14 +36,15 @@ const ROUTES = [
     HomeComponent,
     EditProjectComponent,
     JobsListComponent,
-    JobDetailComponent
+    JobDetailComponent,
+    InputStreamComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [ProjectService, EntitiesService],
+  providers: [ProjectService, EntitiesService, InputStreamService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

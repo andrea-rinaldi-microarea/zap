@@ -6,11 +6,12 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-4">
+  <div class="col-4 col-md-3 col-lg-2">
     <zap-jobs-list></zap-jobs-list> 
   </div>  
-  <div class="col-8" *ngIf="currJobService.job">
+  <div class="col-8 col-md-9 col-lg-10" *ngIf="currJobService.job">
     <zap-job-detail></zap-job-detail>
+    <zap-input-stream></zap-input-stream>
   </div>  
 </div>
 <nav class="navbar fixed-bottom navbar-light bg-light">
