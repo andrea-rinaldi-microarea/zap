@@ -5,6 +5,11 @@ export interface Rule {
     apply(source: string, target: Column): string;
 }
 
+export const AllRules: string[] = [
+    "Copy",
+    "Fixed"
+];
+
 export class Copy implements Rule {
     apply(source: string, target: Column): string {
         if (target.type in [ Type.Money, Type.Double, Type.Float, Type.Percent, Type.Quantity ])

@@ -23,6 +23,10 @@ export class EditProjectComponent implements OnInit {
   }
 
   onSave() {
+    for (let job of this.projectService.theProject.jobs) {
+      job.stream.sample = [];
+    }
+    var str = JSON.stringify(this.projectService.theProject);
     this.router.navigateByUrl('/home');
   }
 

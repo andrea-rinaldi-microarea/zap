@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ProjectService } from '../services/project.service';
 import { Project } from '../model/project.model';
 import { Entity } from '../model/entity.model';
+import { InputStream } from '../model/input-stream.model';
 
 const sampleProject: Project = {
   name: "Arivata",
@@ -10,11 +11,13 @@ const sampleProject: Project = {
   targetFolder: "",
   jobs: [ {
     targetEntityName: "MA_Items",
-    mappings: []
+    mappings: [],
+    stream: new InputStream()
   },
   {
     targetEntityName: "MA_CustSupp",
-    mappings: []
+    mappings: [],
+    stream: new InputStream()
   }]
 }
 

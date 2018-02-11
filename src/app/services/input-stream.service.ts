@@ -5,9 +5,6 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class InputStreamService {
 
-  stream: InputStream;
-  data: string[][] = [];
-
   public inputs: string[] = [
     "Artikel.csv",
     "Abverkauf.csv",
@@ -16,7 +13,7 @@ export class InputStreamService {
 
   constructor() { }
 
-  load(input: string, stream: InputStream, maxLines: number) {
+  load(stream: InputStream, maxLines: number) {
     stream.columns = [];
     if (stream.hasHeaders) {
       for (let colname of sample[0]) {
@@ -28,9 +25,9 @@ export class InputStreamService {
       }
     }
 
-    this.data = [];
+    stream.sample = [];
     for (var l = stream.hasHeaders ? 1 : 0; l < Math.min(sample.length, maxLines); l++) {
-      this.data.push(sample[l]);
+      stream.sample.push(sample[l]);
     }
   }
 }

@@ -1,6 +1,7 @@
 import { InputStream } from './../../model/input-stream.model';
 import { InputStreamService } from './../../services/input-stream.service';
 import { Component, OnInit } from '@angular/core';
+import { CurrentJobService } from '../current-job.service';
 
 @Component({
   selector: 'zap-input-stream',
@@ -9,19 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InputStreamComponent implements OnInit {
 
-  inputStreamName: string;
-  hasHeaders: boolean;
-
-  constructor(public inputStreamService: InputStreamService) { }
+  constructor(private currJobService: CurrentJobService, public inputStreamService: InputStreamService) { }
 
   ngOnInit() {
   }
 
   onLoadStream() {
-    this.inputStreamService.stream = new InputStream(this.inputStreamName, this.hasHeaders);
     this.inputStreamService.load(
-      this.inputStreamName,
-      this.inputStreamService.stream,
+      this.currJobService.job.stream,
       15
     );
   }

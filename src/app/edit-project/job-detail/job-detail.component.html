@@ -1,26 +1,39 @@
 <div class="row mb-2">
+  <span class="d-block py-1 px-2 bg-light w-100 text-uppercase">target</span>
   <form class="col-12 form-inline">
-      <label for="targetEntity" class="col-3 col-form-label">Target Entity</label>
-      <select class="form-control col-7" name="targetEntity" id="targetEntity" (ngModelChange)="onTargetEntityChanged($event)" [(ngModel)]="currJobService.job.targetEntityName">
-        <option *ngFor="let entity of entitiesService.entities">{{entity.name}}</option>
-      </select>
+    <label for="targetEntity" class="col-3 col-form-label">Target Entity</label>
+    <select class="form-control col-7" name="targetEntity" id="targetEntity" (ngModelChange)="onTargetEntityChanged($event)" [(ngModel)]="currJobService.job.targetEntityName">
+      <option *ngFor="let entity of entitiesService.entities">{{entity.name}}</option>
+    </select>
   </form>
 </div>
 <div class="row">
   <div class="col-12">
-    <table class="table table-sm">
+    <table class="table table-sm table-hover">
       <thead class="thead-light">
         <tr>
-          <th scope="col">Column Name</th>
-          <th scope="col">Type</th>
-          <th scope="col">Length</th>
+          <th scope="col" colspan="2" width="50%">Column</th>
+          <th scope="col" colspan="2" width="50%">Rule</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let mapping of currJobService.job.mappings">
-          <td>{{mapping.targetColumn.name}}</td>
-          <td>{{mapping.targetColumn.type}}</td>
-          <td>{{mapping.targetColumn.length}}</td>
+        <tr *ngFor="let mapping of currJobService.job.mappings" (click)="clickedInRow($event, mapping)">
+          <td width="25%">{{mapping.targetColumn.name}}</td>
+          <td width="25%">{{mapping.targetColumn.typeDescription()}}</td>
+          <td *ngIf="curr!=mapping" width="16.5%">{{mapping.rule ? mapping.rule : "[not set]"}}</td>
+          <td *ngIf="curr!=mapping" width="33.5%">{{ruleDescription(mapping)}}</td>
+          <td colspan="2" *ngIf="curr==mapping" (click)="clickedInColumn($event)">
+            <form class="form-inline">
+              <select class="form-control col-4" name="rule" id="rule" [(ngModel)]="mapping.rule">
+                  <option *ngFor="let rule of allRules">{{rule}}</option>
+              </select>
+              <span *ngIf="!mapping.rule" class="col-8"></span>
+              <input *ngIf="mapping.rule == 'Fixed'" class="form-control col-8" name="fixedValue" id="fixedValue" type="text" [(ngModel)]="mapping.fixedValue">
+              <select *ngIf="mapping.rule == 'Copy'" class="form-control col-8" name="source" id="source" [(ngModel)]="mapping.sourceColumn">
+                  <option *ngFor="let col of currJobService.job.stream.columns; let idx=index" [ngValue]="idx">{{col.name}}</option>
+              </select>
+            </form>
+          </td>
         </tr>
       </tbody>
     </table>
