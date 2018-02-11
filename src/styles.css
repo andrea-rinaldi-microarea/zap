@@ -7,7 +7,13 @@
 }
 
 .main-frame {
-    padding: 15px;
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+body, html {
+    height: 100%;
 }
 
 /* html {

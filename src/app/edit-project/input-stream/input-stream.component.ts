@@ -22,7 +22,7 @@ export class InputStreamComponent implements OnInit {
     this.inputStreamService.load(
       this.inputStreamName,
       this.inputStreamService.stream,
-      20
+      15
     );
   }
 }

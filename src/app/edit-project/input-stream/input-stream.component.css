@@ -1,0 +1,10 @@
+table {
+    margin-bottom: 0;
+}
+.table-sm th, .table-sm td {
+    padding: 0.15rem;
+}
+
+th {
+    font-weight: normal;
+}
