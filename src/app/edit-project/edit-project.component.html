@@ -1,9 +1,38 @@
 <div style="margin-bottom: 54px;">
   <div class="row">
-    <div class="col-10">
-        <p>
+    <div class="col-3">
+        <h4>
             Project {{projectService.theProject.name}}
-          </p>
+        </h4>
+    </div>
+    <div class="col-7">
+      <form>
+          <div class="form-group row">
+              <label for="sourceFolder" class="col-sm-3 col-form-label">source folder</label>
+              <div class="col-sm-9">
+                <div class="input-group">
+                  <input type="text" class="form-control" name="sourceFolder" id="sourceFolder" [(ngModel)]="projectService.theProject.sourceFolder">
+                  <div class="input-group-append">
+                    <span class="input-group-text"><span class="oi oi-ellipses" role="button" (click)="onBrowseSource()"></span></span>
+                  </div>
+                </div>
+              </div>
+            </div>      
+            <div class="form-group row">
+          <label for="targetFolder" class="col-sm-3 col-form-label">output folder</label>
+          <div class="col-sm-9">
+            <div class="input-group">
+              <input type="text" class="form-control" id="targetFolder"  name="targetFolder" [(ngModel)]="projectService.theProject.targetFolder">
+              <div class="input-group-append">
+                  <span class="input-group-text"><span class="oi oi-ellipses" role="button" (click)="onBrowseOutput()"></span></span>
+                </div>
+            </div>
+          </div>
+        </div>
+      </form> 
+    </div>
+    <div class="col-2">
+        <button class="btn btn-primary" (click)="onConvert()"><span class="oi oi-bolt"></span>&nbsp;Convert</button>
     </div>
   </div>
   <div class="row">
