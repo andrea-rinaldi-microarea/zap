@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProjectService } from '../services/project.service';
 import { Job } from '../model/job.model';
@@ -17,8 +17,7 @@ export class EditProjectComponent implements OnInit {
     private router: Router, 
     private projectService: ProjectService, 
     private currJobService: CurrentJobService,
-    private electronService: ElectronService,
-    private changeDetector: ChangeDetectorRef
+    private electronService: ElectronService
   ) { }
 
   ngOnInit() {
@@ -42,19 +41,20 @@ export class EditProjectComponent implements OnInit {
 
   onBrowseSource() {
     if (this.electronService.isElectronApp) {
-      this.electronService.remote.dialog.showOpenDialog({title:'Source Folder', properties: ["openDirectory"] },  (folders) => {
+      var folders = this.electronService.remote.dialog.showOpenDialog({title:'Source Folder', properties: ["openDirectory"] });
+      console.log(folders);
+      if (folders) {
         this.projectService.theProject.sourceFolder = folders[0];
-        this.changeDetector.detectChanges();
-      });
+      }
     }
   }
 
   onBrowseOutput() {
     if (this.electronService.isElectronApp) {
-      this.electronService.remote.dialog.showOpenDialog({title:'Output Folder', properties: ["openDirectory"] },  (folders) => {
+      var folders = this.electronService.remote.dialog.showOpenDialog({title:'Output Folder', properties: ["openDirectory"] });
+      if (folders) {
         this.projectService.theProject.targetFolder = folders[0];
-        this.changeDetector.detectChanges();
-      });
+      }
     }
   }
 }
