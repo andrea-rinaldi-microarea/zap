@@ -5,8 +5,6 @@ import { Job } from '../model/job.model';
 import { CurrentJobService } from './current-job.service';
 import { ElectronService } from 'ngx-electron';
 
-declare var fs: any;
-
 @Component({
   selector: 'zap-edit-project',
   templateUrl: './edit-project.component.html',
@@ -24,7 +22,6 @@ export class EditProjectComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log('ngOnInit');
   }
 
   onClose() {
@@ -36,14 +33,7 @@ export class EditProjectComponent implements OnInit {
       job.stream.sample = [];
     }
     var str = JSON.stringify(this.projectService.theProject);
-    // this.router.navigateByUrl('/home');
-
-    fs.readdir('.', (err, files) => {
-      console.log(files);
-    });
-    console.log('going home');
     this.router.navigateByUrl('/home');
-
   }
 
   onConvert() {
