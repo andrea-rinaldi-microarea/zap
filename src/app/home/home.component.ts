@@ -5,25 +5,7 @@ import { ProjectService } from '../services/project.service';
 import { Project } from '../model/project.model';
 import { Entity } from '../model/entity.model';
 import { InputStream } from '../model/input-stream.model';
-
-const sampleProject: Project = {
-  name: "Arivata",
-  pathName: "./Arivata.zapproj",
-  sourceFolder: "",
-  targetFolder: "",
-  jobs: [ {
-    targetEntityName: "MA_Items",
-    mappings: [],
-    stream: new InputStream()
-  },
-  {
-    targetEntityName: "MA_CustSupp",
-    mappings: [],
-    stream: new InputStream()
-  }]
-}
-
-declare const path;
+import { Path } from '../utils/node';
 
 @Component({
   selector: 'zap-home',
@@ -58,15 +40,14 @@ export class HomeComponent implements OnInit {
         ]
       });
       if (files) {
-        console.log(path.basename(files[0], '.zapproj'));
-        this.projectService.theProject.pathName = files[0];
-        this.projectService.theProject.name = path.basename(files[0], '.zapproj');
-        this.router.navigateByUrl('/edit');
+        this.projectService.load(files[0]);
+      } else {
+        return;
       }
     } else {
-      this.projectService.theProject = sampleProject;
-      this.router.navigateByUrl('/edit');
+      this.projectService.load("");
     }    
+    this.router.navigateByUrl('/edit');
   }
 
 }

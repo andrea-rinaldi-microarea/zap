@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Table Name="MA_ChartOfAccounts" Module="ChartOfAccounts" Document="Document.ERP.ChartOfAccounts.Documents.ChartOfAccounts" Namespace="Table.ERP.ChartOfAccounts.Dbl.MA_ChartOfAccounts" RuntimeClass="TChartOfAccounts" localize="Chart of Accounts" Reference="">
+  <Overview localizable="true">This table contains the chart of account. It is a Master table.</Overview>
+  <Fields>
+    <Column Name="Account" Type="String" Length="16" ReadOnly="X" Mandatory="X" Default="X" Enum="" Reference="Table.ERP.ChartOfAccounts.Dbl.MA_ChartOfAccounts" localizable="true">
+    </Column>
+    <Column Name="Description" Type="String" Length="64" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">
+    </Column>
+    <Column Name="CodeType" Type="Enum" Length="0" ReadOnly="" Mandatory="X" Default="X" Enum="ChartOfAccounts/47" Reference="" localizable="true">Account Type, Customer, Supplier or Pure</Column>
+    <Column Name="PostableInJE" Type="Bool" Length="1" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">The field shows if the account is postable in journal entry.&lt;br&gt;It's possible that an account is not postable in journal entry but is postable in cost accounting.</Column>
+    <Column Name="Ledger" Type="String" Length="16" ReadOnly="X" Mandatory="X" Default="X" Enum="False" Reference="Table.ERP.ChartOfAccounts.Dbl.MA_Ledgers" localizable="true">Ledger code</Column>
+    <Column Name="Notes" Type="String" Length="64" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">
+    </Column>
+    <Column Name="Disabled" Type="Bool" Length="1" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">
+    </Column>
+    <Column Name="PostableInCostAcc" Type="Bool" Length="1" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">The field shows that the account is used in the cost accounting module, it is possible to show the percents of allotment of the account 
+		to the cost centres and/or the jobs to produce in automatic analytical movements based on these allotment schemes 
+		(Costing Account Template table).</Column>
+    <Column Name="DebitCreditSign" Type="Enum" Length="0" ReadOnly="" Mandatory="X" Default="X" Enum="ChartOfAccounts/125" Reference="" localizable="true">Ignore Debit and Credit.&lt;br&gt;For analytical templates</Column>
+    <Column Name="UoM" Type="String" Length="8" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Unit of measure</Column>
+    <Column Name="CostCentersDistribution" Type="Enum" Length="0" ReadOnly="" Mandatory="X" Default="X" Enum="CostAccounting/123" Reference="" localizable="true">Cost Center Distribution Type</Column>
+    <Column Name="JobsDistribution" Type="Enum" Length="0" ReadOnly="" Mandatory="X" Default="X" Enum="CostAccounting/124" Reference="" localizable="true">Job Distribution Type</Column>
+    <Column Name="DirectCost" Type="Enum" Length="0" ReadOnly="" Mandatory="X" Default="X" Enum="ChartOfAccounts/126" Reference="" localizable="true">Direct Account Type</Column>
+    <Column Name="FullCost" Type="Enum" Length="0" ReadOnly="" Mandatory="X" Default="X" Enum="ChartOfAccounts/127" Reference="" localizable="true">Full Account Type</Column>
+    <Column Name="InCurrency" Type="Bool" Length="1" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">The account is managed in foreign currency. Depending on a currency parameter.</Column>
+    <Column Name="Currency" Type="String" Length="8" ReadOnly="" Mandatory="" Default="" Enum="" Reference="Table.ERP.Currencies.Dbl.MA_Currencies" localizable="true">Alternative currency of this account. Only if InCurrency field it's TRUE.</Column>
+    <Column Name="DeferralsAccount" Type="String" Length="16" ReadOnly="" Mandatory="" Default="" Enum="" Reference="Table.ERP.ChartOfAccounts.Dbl.MA_ChartOfAccounts" localizable="true">Deferral account used to register a deferral on this account</Column>
+    <Column Name="DeferralsDays" Type="Integer" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Number of default deferral days</Column>
+    <Column Name="AccrualsAccount" Type="String" Length="16" ReadOnly="" Mandatory="" Default="" Enum="" Reference="Table.ERP.ChartOfAccounts.Dbl.MA_ChartOfAccounts" localizable="true">Accrual account used to register an accrual on this account</Column>
+    <Column Name="AccrualsDays" Type="Integer" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Number of default accrual days</Column>
+    <Column Name="CostAccAccountGroup" Type="String" Length="8" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Field only for internal use</Column>
+    <Column Name="TBGuid" Type="uuid" Length="0" ReadOnly="X" Mandatory="X" Default="X" Enum="" Reference="" localizable="true">Universally Unique Identifier</Column>
+    <Column Name="CashFlowType" Type="Enum" Length="0" ReadOnly="" Default="X" Mandatory="" Enum="BalanceAnalysis/134" Reference="" localizable="true">
+    </Column>
+    <Column Name="DocToBeIssRecType" Type="Enum" Length="0" ReadOnly="" Default="X" Mandatory="" Enum="ChartOfAccount/472" Reference="" localizable="true">Indicates the type of documents to be issued/received</Column>
+    <Column Name="ReportCode" Type="String" Length="25" ReadOnly="" Default="" Mandatory="" Enum="" Reference="" localizable="true">It is used in reports to represent Chart Of Accounts structure</Column>
+    <Column Name="ExternalCode" Type="String" Length="25" ReadOnly="" Default="" Mandatory="" Enum="" Reference="" localizable="true">It is used for export Chart of Accounts code to other sofware</Column>
+  </Fields>
+  <Keys>
+    <Key Name="PK_ChartOfAccounts" Type="Primary">
+      <Column Name="Account" localizable="true" />
+    </Key>
+    <Key Name="MA_ChartOfAccounts2" Type="Index">
+      <Column Name="Description" localizable="true" />
+    </Key>
+    <Key Name="MA_ChartOfAccounts3" Type="Index">
+      <Column Name="Ledger" localizable="true" />
+    </Key>
+  </Keys>
+  <Remarks localizable="true">Nothing to remark.</Remarks>
+</Table>

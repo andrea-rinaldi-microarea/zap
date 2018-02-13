@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Table Name="MA_HomogeneousCtg" Module="Items" Document="Document.ERP.Items.Documents.HomogeneousCtg" Namespace="Table.ERP.Items.Dbl.MA_HomogeneousCtg" RuntimeClass="THomogeneousCtg" localize="Homogeneous Category" Reference="">
+  <Overview localizable="true">The homogeneous categories group items of similar type and value. In this they differ from the commodity categories that group together items of a similar nature but with very different values.
+</Overview>
+  <Fields>
+    <Column Name="Category" Type="String" Length="8" ReadOnly="" Mandatory="X" Default="" Enum="" Reference="" localizable="true">The univocal code which identifies the homogeneous category.</Column>
+    <Column Name="Description" Type="String" Length="32" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Description category.</Column>
+    <Column Name="Notes" Type="String" Length="64" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Field for notes.</Column>
+    <Column Name="MRPPolicy" Type="Enum" Length="0" ReadOnly="X" Mandatory="X" Default="X" Enum="Items/345" Reference="" localizable="true">MRP policy.</Column>
+    <Column Name="NoMRP" Type="Bool" Length="1" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">If it is true the catogory does not appear in MRP.</Column>
+    <Column Name="TBGuid" Type="uuid" Length="" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Field for internal use.</Column>
+  </Fields>
+  <Keys>
+    <Key Name="PK_HomogeneousCtg" Type="Primary">
+      <Column Name="Category" localizable="true" />
+    </Key>
+    <Key Name="MA_HomogeneousCtg2" Type="Index">
+      <Column Name="Description" localizable="true" />
+    </Key>
+  </Keys>
+  <Remarks localizable="true">Nothing to remark.</Remarks>
+</Table>

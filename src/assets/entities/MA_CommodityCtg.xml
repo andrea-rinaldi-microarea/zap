@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Table Name="MA_CommodityCtg" Module="Items" Document="Document.ERP.Items.Documents.CommodityCtg" Namespace="Table.ERP.Items.Dbl.MA_CommodityCtg" RuntimeClass="TCommodityCtg" localize="Commodity Category" Reference="">
+  <Overview localizable="true">This table contains the commodity categories data.</Overview>
+  <Fields>
+    <Column Name="Category" Type="String" Length="8" ReadOnly="" Mandatory="X" Default="" Enum="" Reference="" localizable="true">The univocal code which identifies the commodity category.</Column>
+    <Column Name="Description" Type="String" Length="32" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Commodity category description.</Column>
+    <Column Name="Discount1" Type="Percent" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Discount 1 percentage (cascade discount).</Column>
+    <Column Name="Discount2" Type="Percent" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Discount 2 percentage (cascade discount).</Column>
+    <Column Name="DiscountFormula" Type="String" Length="16" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Discount formula.</Column>
+    <Column Name="HasCustomers" Type="Bool" Length="1" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">If enabled, the commodity category customers management is activated.</Column>
+    <Column Name="HasSuppliers" Type="Bool" Length="1" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">If enabled, the commodity category suppliers management is activated.</Column>
+    <Column Name="Notes" Type="String" Length="64" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Descriptive text.</Column>
+    <Column Name="SaleOffset" Type="String" Length="16" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Sale Offset used by the items that belong to this commodity category.</Column>
+    <Column Name="PurchaseOffset" Type="String" Length="16" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Purchase Offset used by the items that belong to this commodity category.</Column>
+    <Column Name="ConsumptionOffset" Type="String" Length="16" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Consumption Offset used by the items that belong to this commodity category.</Column>
+    <Column Name="TBGuid" Type="uuid" Length="" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Field for internal use.</Column>
+    <Column Name="ReverseCharge" Type="Bool" Length="1" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">If enabled, the items that belong to this commodity category are subject to reverse charge in purchase.</Column>
+    <Column Name="RCTaxCode" Type="String" Length="4" ReadOnly="" Mandatory="" Default="" Enum="" Reference="Company/MA_TaxCodes" localizable="true">It indicates the reverse charge tax code.</Column>
+    <Column Name="PerishablesType" Type="int" Length="" ReadOnly="" Mandatory="" Default="" Enum="Items/442" Reference="" localizable="true">It indicates the perishables type of the items that belong to this commodity category.</Column>
+  </Fields>
+  <Keys>
+    <Key Name="PK_CommodityCtg" Type="Primary">
+      <Column Name="Category" localizable="true" />
+    </Key>
+    <Key Name="MA_CommodityCtg2" Type="Index">
+      <Column Name="Description" localizable="true" />
+    </Key>
+    <Key Name="MA_CommodityCtg3" Type="Index">
+      <Column Name="HasSuppliers" localizable="true" />
+    </Key>
+  </Keys>
+  <Remarks localizable="true">Nothing to remark.</Remarks>
+</Table>

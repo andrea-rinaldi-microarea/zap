@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Table Name="MA_Items" Module="Items" Document="Document.ERP.Items.Documents.Items" Namespace="Table.ERP.Items.Dbl.MA_Items" RuntimeClass="TItem" localize="Items" Reference="">
+  <Overview localizable="true">The table contains the items master table.</Overview>
+  <Fields>
+    <Column Name="Item" Type="String" Length="21" ReadOnly="" Mandatory="X" Default="" Enum="" Reference="" localizable="true">The univocal code which identifies the item.</Column>
+    <Column Name="SaleBarCode" Type="String" Length="15" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">The item sale barcode.</Column>
+    <Column Name="Description" Type="String" Length="128" ReadOnly="" Mandatory="" Default="" Enum="False" Reference="" localizable="true">The master description of the item.</Column>
+    <Column Name="IsGood" Type="Bool" Length="1" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">It identifies if the item is of good or service type. If enabled the item is of good type.</Column>
+    <Column Name="TaxCode" Type="String" Length="4" ReadOnly="" Mandatory="" Default="" Enum="" Reference="Company/MA_TaxCodes" localizable="true">The item tax code.</Column>
+    <Column Name="BaseUoM" Type="String" Length="8" ReadOnly="" Mandatory="" Default="" Enum="" Reference="Items/MA_UnitsOfMeasure" localizable="true">The basic unity of measure of the item. The amounts shown in the "fiscal data" tab are always expressed in the basic unity of measure.</Column>
+    <Column Name="BasePrice" Type="Money" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">The item base price. It participates to one of the many prices proposed in sale phase.</Column>
+    <Column Name="Discount1" Type="Percent" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Discount 1 percentage (cascade discount).</Column>
+    <Column Name="Discount2" Type="Percent" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Discount 2 percentage (cascade discount).</Column>
+    <Column Name="DiscountFormula" Type="String" Length="16" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Discount formula.</Column>
+    <Column Name="Markup" Type="Percent" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">The item markup percentage. A profit margin on the last or standard cost can be proposed as sales price.</Column>
+    <Column Name="ItemType" Type="String" Length="8" ReadOnly="" Mandatory="" Default="" Enum="" Reference="Items/MA_ItemTypes" localizable="true">Field for internal use.</Column>
+    <Column Name="CommodityCtg" Type="String" Length="8" ReadOnly="" Mandatory="" Default="" Enum="" Reference="Items/MA_CommodityCtg" localizable="true">The commodity category code of the item.</Column>
+    <Column Name="HomogeneousCtg" Type="String" Length="8" ReadOnly="" Mandatory="" Default="" Enum="" Reference="Items/MA_HomogeneousCtg" localizable="true">The homogeneous category code of the item.</Column>
+    <Column Name="CommissionCtg" Type="String" Length="8" ReadOnly="" Mandatory="" Default="" Enum="" Reference="SalesPeople/MA_CommissionCtg" localizable="true">The commission category code of the item.</Column>
+    <Column Name="SaleOffset" Type="String" Length="16" ReadOnly="" Mandatory="" Default="" Enum="" Reference="ChartOfAccounts/MA_ChartOfAccounts" localizable="true">The offset used in sale document.</Column>
+    <Column Name="PurchaseOffset" Type="String" Length="16" ReadOnly="" Mandatory="" Default="" Enum="" Reference="ChartOfAccounts/MA_ChartOfAccounts" localizable="true">The offset used in purchase document.</Column>
+    <Column Name="AvailabilityDate" Type="Date" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">It shows the date from which the item will be available in stock (item in rearrangement).</Column>
+    <Column Name="SaleType" Type="Enum" Length="0" ReadOnly="X" Mandatory="X" Default="X" Enum="InvoiceMng/56" Reference="" localizable="true">It identifies the sale type.</Column>
+    <Column Name="HasCustomers" Type="Bool" Length="1" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">If enabled, the item customers management is activated.</Column>
+    <Column Name="HasSuppliers" Type="Bool" Length="1" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">If enabled, the item suppliers management is activated.</Column>
+    <Column Name="InternalNote" Type="String" Length="128" ReadOnly="" Mandatory="" Default="" Enum="False" Reference="" localizable="true">Field for private note.</Column>
+    <Column Name="PublicNote" Type="String" Length="128" ReadOnly="" Mandatory="" Default="" Enum="False" Reference="" localizable="true">Field for public note. The user can customize the report in order to print the public note.</Column>
+    <Column Name="Producer" Type="String" Length="16" ReadOnly="" Mandatory="" Default="" Enum="" Reference="Items/MA_Producers" localizable="true">It indicates the manufacturer. It is used in manufacturers/product category management.</Column>
+    <Column Name="UseSerialNo" Type="Bool" Length="1" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">If enabled the serial number management is activated.</Column>
+    <Column Name="OldItem" Type="String" Length="21" ReadOnly="" Mandatory="" Default="X" Enum="" Reference="" localizable="true">In this field there is the item code from which this item has been copied.</Column>
+    <Column Name="Disabled" Type="Bool" Length="1" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">It indicates if the item is disabled.</Column>
+    <Column Name="ProductCtg" Type="String" Length="8" ReadOnly="" Mandatory="" Default="" Enum="" Reference="Items/MA_ProductCtg" localizable="true">The product category code of the item. It is used in manufacturers/product category management.</Column>
+    <Column Name="ProductSubCtg" Type="String" Length="8" ReadOnly="" Mandatory="" Default="" Enum="" Reference="Items/MA_ProductCtgSubCtg.xml" localizable="true">The product subcategory code of the item. It is used in manufacturers/product category management.</Column>
+    <Column Name="KitExpansion" Type="Bool" Length="1" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">If the item is an item kit, with this parameter the user can choose if expand or not expand the kit.</Column>
+    <Column Name="PostKitComponents" Type="Bool" Length="1" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">If the item is an item kit and this parameter is enabled, the user can transact its individual components in the inventory.</Column>
+    <Column Name="Picture" Type="String" Length="128" ReadOnly="" Mandatory="" Default="X" Enum="" Reference="" localizable="true">If the user linked an image to this item, it indicates the path of the item picture.</Column>
+    <Column Name="StandardCostDate" Type="Date" Length="0" ReadOnly="" Mandatory="" Default="X" Enum="" Reference="" localizable="true">Date of last standard cost update.</Column>
+    <Column Name="Nature" Type="Enum" Length="0" ReadOnly="X" Mandatory="X" Default="X" Enum="Items/342" Reference="" localizable="true">It identifies the item nature.</Column>
+    <Column Name="SecondRateUoM" Type="String" Length="8" ReadOnly="" Mandatory="" Default="" Enum="" Reference="Items/MA_UnitsOfMeasure" localizable="true">Field for internal use.</Column>
+    <Column Name="SecondRate" Type="String" Length="21" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Field for internal use.</Column>
+    <Column Name="PurchaseType" Type="Enum" Length="0" ReadOnly="X" Mandatory="X" Default="X" Enum="InvoiceMng/56" Reference="" localizable="true">It identifies the purchase type.</Column>
+    <Column Name="ConsuptionOffset" Type="String" Length="16" ReadOnly="" Mandatory="" Default="" Enum="" Reference="ChartOfAccounts/MA_ChartOfAccounts" localizable="true">Consuption Offset.</Column>
+    <Column Name="NotPostable" Type="Bool" Length="1" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">If enabled the item is not transactable in inventory.</Column>
+    <Column Name="SalespersonComm" Type="Percent" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Salespeople commission percentage.</Column>
+    <Column Name="CostCenter" Type="String" Length="8" ReadOnly="" Mandatory="" Default="" Enum="" Reference="CostAccounting/MA_CostCenters" localizable="true">Cost center item.</Column>
+    <Column Name="NoUoMSearch" Type="Bool" Length="1" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">If enabled, the searck by general unit of misures is disabled.</Column>
+    <Column Name="Job" Type="String" Length="10" ReadOnly="" Mandatory="" Default="" Enum="" Reference="Jobs/MA_Jobs" localizable="true">Job item.</Column>
+    <Column Name="DescriptionText" Type="String" Length="64" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">It contains the namespace of the detailed description text.</Column>
+    <Column Name="CanBeDisabled" Type="Bool" Length="1" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Field for internal use.</Column>
+    <Column Name="ProductLine" Type="String" Length="8" ReadOnly="" Mandatory="" Default="" Enum="" Reference="ProductLines/MA_ProductLines" localizable="true">Product line.</Column>
+    <Column Name="ShortDescription" Type="String" Length="40" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Short description of the item used for paragon in the file that is exported. Field managed only by the country: PL.</Column>
+    <Column Name="TBGuid" Type="uuid" Length="" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Field for internal use.</Column>
+    <Column Name="BasePriceWithTax" Type="Bool" Length="1" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">If enabled, the base price includes tax.</Column>
+    <Column Name="SubjectToWithholdingTax" Type="bool" Length="1" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">If enabled, the item is subject to withholding tax.</Column>
+    <Column Name="CreationDate" Type="datetime" Length="" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">It indicates the item creation date.</Column>
+    <Column Name="ModificationDate" Type="datetime" Length="" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">It indicates last update date of the item.</Column>
+    <Column Name="NoAddDiscountInSaleDoc" Type="Bool" Length="1" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">If enabled the additional discount must not be applied.</Column>
+    <Column Name="BarcodeSegment" Type="String" Length="21" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">It indicates the barcode segment.</Column>
+    <Column Name="ReverseCharge" Type="Bool" Length="1" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">If enabled, the item is subject to reverse charge in purchase.</Column>
+    <Column Name="RCTaxCode" Type="String" Length="4" ReadOnly="" Mandatory="" Default="" Enum="" Reference="Company/MA_TaxCodes" localizable="true">It indicates the reverse charge tax code.</Column>
+    <Column Name="Draft" Type="bool" Length="1" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Draft flag status. It is used in order to indicate that the master data are not completed and so the code is present but not usable.</Column>
+    <Column Name="AccountingType" Type="String" Length="8" ReadOnly="" Mandatory="" Default="" Enum="" Reference="AccountingType/MA_AccountingType" localizable="true">Accounting Type item.</Column>
+  </Fields>
+  <Keys>
+    <Key Name="PK_Items" Type="Primary">
+      <Column Name="Item" localizable="true" />
+    </Key>
+    <Key Name="IX_MA_Items_1" Type="Index">
+      <Column Name="Item" localizable="true" />
+      <Column Name="GoodsAmount" localizable="true" />
+    </Key>
+    <Key Name="IX_MA_Items_2" Type="Index">
+      <Column Name="GoodsAmount" localizable="true" />
+      <Column Name="Item" localizable="true" />
+    </Key>
+    <Key Name="IX_MA_Items_3" Type="Index">
+      <Column Name="Disabled" localizable="true" />
+      <Column Name="Item" localizable="true" />
+    </Key>
+    <Key Name="IX_MA_Items_4" Type="Index">
+      <Column Name="SaleBarCode" localizable="true" />
+      <Column Name="Item" localizable="true" />
+    </Key>
+  </Keys>
+  <Remarks localizable="true">Nothing to remark.</Remarks>
+</Table>

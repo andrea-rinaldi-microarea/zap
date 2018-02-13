@@ -31,7 +31,7 @@ export class JobDetailComponent implements OnInit {
   }
 
   onTargetEntityChanged($event: any) {
-
+    this.entitiesService.loadColumns($event);
   }
 
   onAddColumn() {

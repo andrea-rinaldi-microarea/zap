@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Table Name="MA_Contacts" Module="Contacts" Document="Document.ERP.Contacts.Documents.Contacts" Namespace="Table.ERP.Contacts.Dbl.MA_Contacts" RuntimeClass="TContacts" localize="" Reference="">
+  <Overview localizable="true">The table contains the master table of Contacts.</Overview>
+  <Fields>
+    <Column Name="Contact" Type="String" Length="12" ReadOnly="" Mandatory="X" Default="" Enum="" Reference="" localizable="true">
+    </Column>
+    <Column Name="ContactDate" Type="Date" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Acquired in date...</Column>
+    <Column Name="Language" Type="String" Length="8" ReadOnly="" Mandatory="" Default="" Enum="" Reference="Table.ERP.Languages.Dbl.MA_Languages" localizable="true">
+    </Column>
+    <Column Name="PriceList" Type="String" Length="8" ReadOnly="" Mandatory="" Default="" Enum="" Reference="Table.ERP.PricePolicies.Dbl.MA_PriceLists" localizable="true">
+    </Column>
+    <Column Name="TitleCode" Type="String" Length="8" ReadOnly="" Mandatory="" Default="" Enum="" Reference="Table.ERP.Company.Dbl.MA_Titles" localizable="true">
+    </Column>
+    <Column Name="Bank" Type="String" Length="11" ReadOnly="" Mandatory="" Default="" Enum="" Reference="Table.ERP.Banks.Dbl.MA_Banks" localizable="true">
+    </Column>
+    <Column Name="Payment" Type="String" Length="8" ReadOnly="" Mandatory="" Default="" Enum="" Reference="Table.ERP.PaymentTerms.Dbl.MA_PaymentTerms" localizable="true">
+    </Column>
+    <Column Name="Currency" Type="String" Length="8" ReadOnly="" Mandatory="" Default="" Enum="" Reference="Table.ERP.Currencies.Dbl.MA_Currencies" localizable="true">
+    </Column>
+    <Column Name="Area" Type="String" Length="8" ReadOnly="" Mandatory="" Default="" Enum="" Reference="Table.ERP.SalesPeople.Dbl.MA_Areas" localizable="true">
+    </Column>
+    <Column Name="Salesperson" Type="String" Length="8" ReadOnly="" Mandatory="" Default="" Enum="" Reference="Table.ERP.SalesPeople.Dbl.MA_SalesPeople" localizable="true">
+    </Column>
+    <Column Name="AreaManager" Type="String" Length="8" ReadOnly="" Mandatory="" Default="" Enum="" Reference="Table.ERP.SalesPeople.Dbl.MA_SalesPeople" localizable="true">
+    </Column>
+    <Column Name="Port" Type="String" Length="8" ReadOnly="" Mandatory="" Default="" Enum="" Reference="Table.ERP.Shippings.Dbl.MA_Ports" localizable="true">
+    </Column>
+    <Column Name="SuspendedTax" Type="Bool" Length="1" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">
+    </Column>
+    <Column Name="ExemptFromTax" Type="Bool" Length="1" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">
+    </Column>
+    <Column Name="IsAnEUCustSupp" Type="Bool" Length="1" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Field only for internal use</Column>
+    <Column Name="CompanyName" Type="String" Length="128" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">
+    </Column>
+    <Column Name="Address" Type="String" Length="128" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">
+    </Column>
+    <Column Name="ZIPCode" Type="String" Length="10" ReadOnly="" Mandatory="" Default="" Enum="False" Reference="" localizable="true">
+    </Column>
+    <Column Name="City" Type="String" Length="64" ReadOnly="" Mandatory="" Default="" Enum="False" Reference="" localizable="true">
+    </Column>
+    <Column Name="County" Type="String" Length="3" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">
+    </Column>
+    <Column Name="Country" Type="String" Length="64" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">
+    </Column>
+    <Column Name="ISOCountryCode" Type="String" Length="2" ReadOnly="" Mandatory="" Default="" Enum="" Reference="Table.ERP.Company.Dbl.MA_ISOCountryCodes" localizable="true">
+    </Column>
+    <Column Name="TaxIdNumber" Type="String" Length="20" ReadOnly="" Mandatory="" Default="" Enum="False" Reference="" localizable="true">
+    </Column>
+    <Column Name="FiscalCode" Type="String" Length="20" ReadOnly="" Mandatory="" Default="" Enum="False" Reference="" localizable="true">
+    </Column>
+    <Column Name="Telephone1" Type="String" Length="20" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">
+    </Column>
+    <Column Name="Telephone2" Type="String" Length="20" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">
+    </Column>
+    <Column Name="Telex" Type="String" Length="16" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">
+    </Column>
+    <Column Name="Fax" Type="String" Length="16" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">
+    </Column>
+    <Column Name="ContactPerson" Type="String" Length="64" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">
+    </Column>
+    <Column Name="Internet" Type="String" Length="64" ReadOnly="" Mandatory="" Default="" Enum="False" Reference="" localizable="true">
+    </Column>
+    <Column Name="EMail" Type="String" Length="128" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">
+    </Column>
+    <Column Name="IsACustSupp" Type="Bool" Length="1" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Converted into customer</Column>
+    <Column Name="CustSupp" Type="String" Length="12" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Customer code (if converted into Customer)</Column>
+    <Column Name="ConversionDate" Type="Date" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Conversion date (if converted into Customer)</Column>
+    <Column Name="Notes" Type="String" Length="251" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">
+    </Column>
+    <Column Name="Category" Type="String" Length="8" ReadOnly="" Mandatory="" Default="" Enum="" Reference="Table.ERP.CustomersSuppliers.Dbl.MA_CustomerCtg" localizable="true">
+    </Column>
+    <Column Name="Discount1" Type="Percent" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Depending on DiscountFormula</Column>
+    <Column Name="Discount2" Type="Percent" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Depending on DiscountFormula</Column>
+    <Column Name="DiscountFormula" Type="String" Length="16" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">i.e. 50+20 in this case 50 is stored in Discount1 field and 20 in Discount2 field.</Column>
+    <Column Name="TaxCode" Type="String" Length="4" ReadOnly="" Mandatory="" Default="" Enum="" Reference="Table.ERP.Company.Dbl.MA_TaxCodes" localizable="true">
+    </Column>
+    <Column Name="Account" Type="String" Length="16" ReadOnly="" Mandatory="" Default="" Enum="" Reference="Table.ERP.ChartOfAccounts.Dbl.MA_ChartOfAccounts" localizable="true">This field represents the account to which the Contact will belong when will be transformed in Customer.</Column>
+    <Column Name="CommissionCtg" Type="String" Length="8" ReadOnly="" Mandatory="" Default="" Enum="" Reference="Table.ERP.SalesPeople.Dbl.MA_CommissionCtg" localizable="true">The code of Commission category.</Column>
+    <Column Name="ContactsKind" Type="Enum" Length="0" ReadOnly="" Mandatory="X" Default="X" Enum="CustomersSuppliers/118" Reference="" localizable="true">Indicates the type of suppliers origin</Column>
+    <Column Name="TBGuid" Type="uuid" Length="0" ReadOnly="X" Mandatory="X" Default="X" Enum="" Reference="" localizable="true">Universally Unique Identifier</Column>
+    <Column Name="TaxOffice" Type="String" Length="32" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">For Country TR</Column>
+    <Column Name="Disabled" Type="bool" Length="1" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">
+    </Column>
+    <Column Name="Region" Type="String" Length="32" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Used for fiscal VT frame by region</Column>
+    <Column Name="DocumentSendingType" Type="Enum" Length="0" ReadOnly="" Mandatory="X" Default="X" Enum="CustomersSuppliers/173" Reference="" localizable="true">Indicates the type of send</Column>
+    <Column Name="MailSendingType" Type="Enum" Length="0" ReadOnly="" Mandatory="X" Default="X" Enum="CustomersSuppliers/190" Reference="" localizable="true">Mail Sending Type</Column>
+    <Column Name="ContactOrigin" Type="String" Length="8" ReadOnly="" Mandatory="" Default="" Enum="" Reference="Table.Erp.Contacts.Dbl.MA_ContactOrigin" localizable="true">A code indicating the origin of the contact</Column>
+    <Column Name="ContactSpecification" Type="String" Length="8" ReadOnly="" Mandatory="" Default="" Enum="" Reference="Table.Erp.Contacts.Dbl.MA_ContactSpecification" localizable="true">A code indicating the specification of contact origin</Column>
+    <Column Name="GoodsOffset" Type="String" Length="16" ReadOnly="" Default="" Mandatory="" Enum="" Reference="Table.ERP.ChartOfAccounts.Dbl.MA_ChartOfAccounts" localizable="true">Default revenues account for sale of goods   </Column>
+    <Column Name="ServicesOffset" Type="String" Length="16" ReadOnly="" Default="" Mandatory="" Enum="" Reference="Table.ERP.ChartOfAccounts.Dbl.MA_ChartOfAccounts" localizable="true">Default revenues account for sale of services</Column>
+    <Column Name="WorkingTime" Type="String" Length="24" ReadOnly="" Default="" Mandatory="" Enum="" Reference="" localizable="true">
+    </Column>
+    <Column Name="CompanyRegistrNo" Type="String" Length="10" ReadOnly="" Default="" Mandatory="" Enum="" Reference="" localizable="true">
+    </Column>
+    <Column Name="SendDocumentsTo" Type="String" Length="8" ReadOnly="" Default="" Mandatory="" Enum="" Reference="" localizable="true">
+    </Column>
+    <Column Name="PaymentAddress" Type="String" Length="8" ReadOnly="" Default="" Mandatory="" Enum="" Reference="" localizable="true">
+    </Column>
+    <Column Name="ShipToAddress" Type="String" Length="8" ReadOnly="" Default="" Mandatory="" Enum="" Reference="" localizable="true">
+    </Column>
+    <Column Name="SkypeID" Type="String" Length="64" ReadOnly="" Default="" Mandatory="" Enum="" Reference="" localizable="true">
+    </Column>
+    <Column Name="Latitude" Type="String" Length="16" ReadOnly="" Default="" Mandatory="" Enum="" Reference="" localizable="true">
+    </Column>
+    <Column Name="Longitude" Type="String" Length="16" ReadOnly="" Default="" Mandatory="" Enum="" Reference="" localizable="true">
+    </Column>
+    <Column Name="NoSendPostaLite" Type="bool" Length="1" ReadOnly="" Default="" Mandatory="" Enum="" Reference="" localizable="true">Indicates if sending documents to the contact via PostaLite is not enabled</Column>
+    <Column Name="GenRegNo" Type="String" Length="20" ReadOnly="" Default="" Mandatory="" Enum="" Reference="" localizable="true">
+    </Column>
+    <Column Name="GenRegEntity" Type="String" Length="10" ReadOnly="" Default="" Mandatory="" Enum="" Reference="" localizable="true">
+    </Column>
+    <Column Name="FedStateReg" Type="String" Length="20" ReadOnly="" Default="" Mandatory="" Enum="" Reference="" localizable="true">
+    </Column>
+    <Column Name="MunicipalityReg" Type="String" Length="20" ReadOnly="" Default="" Mandatory="" Enum="" Reference="" localizable="true">
+    </Column>
+    <Column Name="SUFRAMA" Type="String" Length="9" ReadOnly="" Default="" Mandatory="" Enum="" Reference="" localizable="true">
+    </Column>
+    <Column Name="Address2" Type="String" Length="64" ReadOnly="" Default="" Mandatory="" Enum="" Reference="" localizable="true">
+    </Column>
+    <Column Name="StreetNo" Type="String" Length="10" ReadOnly="" Default="" Mandatory="" Enum="" Reference="" localizable="true">
+    </Column>
+    <Column Name="District" Type="String" Length="64" ReadOnly="" Default="" Mandatory="" Enum="" Reference="" localizable="true">
+    </Column>
+    <Column Name="FederalState" Type="String" Length="2" ReadOnly="" Default="" Mandatory="" Enum="" Reference="Table.ERP.Company.Dbl.MA_FederalStates" localizable="true">
+    </Column>
+    <Column Name="NaturalPerson" Type="bool" Length="1" ReadOnly="" Default="" Mandatory="" Enum="" Reference="" localizable="true">
+    </Column>
+  </Fields>
+  <Keys>
+    <Key Name="PK_Contacts" Type="Primary">
+      <Column Name="Contact" localizable="true" />
+    </Key>
+    <Key Name="MA_Contacts2" Type="Index">
+      <Column Name="TaxIdNumber" localizable="true" />
+    </Key>
+  </Keys>
+  <Remarks localizable="true">Nothing to remark.</Remarks>
+</Table>

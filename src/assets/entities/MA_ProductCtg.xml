@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Table Name="MA_ProductCtg" Module="Items" Document="Document.ERP.Items.Documents.ProductCtg" Namespace="Table.ERP.Items.Dbl.MA_ProductCtg" RuntimeClass="TProductCtg" localize="Product Category Header" Reference="">
+  <Overview localizable="true">It's the master table of Product Category; It's is join with &lt;A href="MA_ProductCtgSubCtg.htm"&gt;MA_ProductCtgSubCtg&lt;/A&gt;.</Overview>
+  <Fields>
+    <Column Name="Category" Type="String" Length="8" ReadOnly="" Mandatory="X" Default="" Enum="" Reference="" localizable="true">The univocal code which identifies the product category.</Column>
+    <Column Name="Description" Type="String" Length="32" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Product category description.</Column>
+    <Column Name="CodeType" Type="Enum" Length="0" ReadOnly="X" Mandatory="X" Default="X" Enum="Items/108" Reference="" localizable="true">Product Type.</Column>
+    <Column Name="Notes" Type="String" Length="64" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Field for notes</Column>
+    <Column Name="TBGuid" Type="uuid" Length="" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Field for internal use.</Column>
+  </Fields>
+  <Keys>
+    <Key Name="PK_ProductCtg" Type="Primary">
+      <Column Name="Category" localizable="true" />
+    </Key>
+    <Key Name="MA_ProductCtg2" Type="Index">
+      <Column Name="Description" localizable="true" />
+    </Key>
+  </Keys>
+  <Remarks localizable="true">Nothing to remark.</Remarks>
+</Table>

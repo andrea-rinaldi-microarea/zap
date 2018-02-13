@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Table Name="MA_Banks" Module="Banks" Document="Document.ERP.Banks.Documents.CustSuppBanks,Document.ERP.Banks.Documents.CompanyBanks" Namespace="Table.ERP.Banks.Dbl.MA_Banks" RuntimeClass="TBanks" localize="" Reference="">
+  <Overview localizable="true">This table contains the header of the Banks.</Overview>
+  <Fields>
+    <Column Name="ABI" Type="String" Length="8" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">It's the code of the bank defined from the ABI (Italian Bankers Association).</Column>
+    <Column Name="CAB" Type="String" Length="6" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">It's the code of the Agency of the bank defined from the ABI (Italian Bankers Association).</Column>
+    <Column Name="Bank" Type="String" Length="11" ReadOnly="" Mandatory="X" Default="" Enum="" Reference="" localizable="true">
+    </Column>
+    <Column Name="IsACompanyBank" Type="Bool" Length="1" ReadOnly="X" Mandatory="X" Default="X" Enum="" Reference="" localizable="true">If TRUE this is a company bank, otherwise is a Customer/Supplier bank.</Column>
+    <Column Name="Description" Type="String" Length="64" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">
+    </Column>
+    <Column Name="Account" Type="String" Length="16" ReadOnly="" Mandatory="" Default="" Enum="" Reference="Table.ERP.ChartOfAccounts.Dbl.MA_ChartOfAccounts" localizable="true">Used by the bill presentation procedure to generate accounting entries. &lt;br&gt;i.e. when the Account field is empty in the table MA_BanksAccounts</Column>
+    <Column Name="ChargesAccount" Type="String" Length="16" ReadOnly="" Mandatory="" Default="" Enum="" Reference="Table.ERP.ChartOfAccounts.Dbl.MA_ChartOfAccounts" localizable="true">Used by the payment orders settlement procedure in order to generate accounting entries about charges.</Column>
+    <Column Name="Counter" Type="String" Length="50" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Counter of the bank</Column>
+    <Column Name="Address" Type="String" Length="128" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">
+    </Column>
+    <Column Name="ZIPCode" Type="String" Length="10" ReadOnly="" Mandatory="" Default="" Enum="False" Reference="" localizable="true">
+    </Column>
+    <Column Name="County" Type="String" Length="3" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">
+    </Column>
+    <Column Name="City" Type="String" Length="64" ReadOnly="" Mandatory="" Default="" Enum="False" Reference="" localizable="true">
+    </Column>
+    <Column Name="Country" Type="String" Length="64" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">
+    </Column>
+    <Column Name="Telephone1" Type="String" Length="20" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">
+    </Column>
+    <Column Name="Telephone2" Type="String" Length="20" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">
+    </Column>
+    <Column Name="Telex" Type="String" Length="16" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">
+    </Column>
+    <Column Name="Fax" Type="String" Length="16" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">
+    </Column>
+    <Column Name="CABPrefix" Type="String" Length="3" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Field only for internal use.</Column>
+    <Column Name="ABIPrefix" Type="String" Length="3" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Field only for internal use.</Column>
+    <Column Name="SIACode" Type="String" Length="5" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">It is the code of acknowledgment of the company from the bank.</Column>
+    <Column Name="Swift" Type="String" Length="15" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">It is the code of acknowledgment of the bank used in  the international inter-bank relationships that are leaned to the S.W.I.F.T net.</Column>
+    <Column Name="BankDays" Type="Integer" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">This field serves in order to consider the technical times necessary to the banks in order to complete the operations.</Column>
+    <Column Name="Agency" Type="String" Length="10" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Is the agency of the bank</Column>
+    <Column Name="Branch" Type="String" Length="4" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Is the branch of the bank</Column>
+    <Column Name="ContactPerson" Type="String" Length="16" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Is the name of the person to contact, in trouble.</Column>
+    <Column Name="SenderCode" Type="String" Length="5" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">It is the code of the sender to write on Cash Orders</Column>
+    <Column Name="SenderReference" Type="String" Length="32" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">It is the reference of the sender to write on Cash Orders</Column>
+    <Column Name="Signature" Type="String" Length="32" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Is the signature registered in the bank</Column>
+    <Column Name="PreferredCA" Type="String" Length="18" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Is the bank account number proposed when one is requested.</Column>
+    <Column Name="Notes" Type="String" Length="64" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">
+    </Column>
+    <Column Name="Disabled" Type="Bool" Length="1" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">
+    </Column>
+    <Column Name="Identifier" Type="String" Length="5" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Descriptive field only</Column>
+    <Column Name="CashOrderCBICode" Type="Bool" Length="1" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">CBI Form for Cash Orders</Column>
+    <Column Name="TBGuid" Type="uuid" Length="0" ReadOnly="X" Mandatory="X" Default="X" Enum="" Reference="" localizable="true">Universally Unique Identifier</Column>
+    <Column Name="IsForeign" Type="Bool" Length="1" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">TRUE if it's a Foreign bank, used in the Print Bank Transfers on File procedure</Column>
+    <Column Name="CashOrderResultRequest" Type="String" Length="1" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Cash Order result request, used in the Print Cash Order on File procedure</Column>
+    <Column Name="FactoringCode" Type="String" Length="16" ReadOnly="" Default="" Mandatory="" Enum="" Reference="" localizable="true">
+    </Column>
+    <Column Name="FactoringCurrency" Type="String" Length="8" ReadOnly="" Default="" Mandatory="" Enum="" Reference="" localizable="true">
+    </Column>
+    <Column Name="UseValueDate" Type="bool" Length="1" ReadOnly="" Default="" Mandatory="" Enum="" Reference="" localizable="true">
+    </Column>
+    <Column Name="BillsAndPaymentsFolder" Type="String" Length="128" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Default folder for Bills and Payment Orders files</Column>
+    <Column Name="BillsAndPaymentsExtension" Type="String" Length="8" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Default extension for Bills and Payment Orders files</Column>
+    <Column Name="Internet" Type="String" Length="64" ReadOnly="" Default="" Mandatory="" Enum="False" Reference="" localizable="true">
+    </Column>
+    <Column Name="EMail" Type="String" Length="64" ReadOnly="" Default="" Mandatory="" Enum="" Reference="" localizable="true">
+    </Column>
+    <Column Name="ISOCountryCode" Type="String" Length="2" ReadOnly="" Mandatory="" Default="" Enum="" Reference="Table.ERP.Company.Dbl.MA_ISOCountryCodes" localizable="true">
+    </Column>
+    <Column Name="Address2" Type="String" Length="64" ReadOnly="" Default="" Mandatory="" Enum="" Reference="" localizable="true">Additional address</Column>
+    <Column Name="StreetNo" Type="String" Length="10" ReadOnly="" Default="" Mandatory="" Enum="" Reference="" localizable="true">Street number</Column>
+    <Column Name="District" Type="String" Length="64" ReadOnly="" Default="" Mandatory="" Enum="" Reference="" localizable="true">
+    </Column>
+    <Column Name="FederalState" Type="String" Length="2" ReadOnly="" Default="" Mandatory="" Enum="" Reference="Table.ERP.Company.Dbl.MA_FederalState" localizable="true">Federal state code</Column>
+    <Column Name="CBICode" Type="String" Length="10" ReadOnly="" Default="" Mandatory="" Enum="" Reference="" localizable="true">CUC Code of the Company</Column>
+    <Column Name="UseISO20022" Type="Bool" Length="0" ReadOnly="" Default="" Mandatory="" Enum="" Reference="" localizable="true">Use the standard SEPA ISO20022 instead of italian SEPA CBI</Column>
+  </Fields>
+  <Keys>
+    <Key Name="PK_Banks" Type="Primary">
+      <Column Name="Bank" localizable="true" />
+      <Column Name="IsACompanyBank" localizable="true" />
+    </Key>
+    <Key Name="MA_Banks2" Type="Index">
+      <Column Name="IsACompanyBank" localizable="true" />
+      <Column Name="Description" localizable="true" />
+    </Key>
+  </Keys>
+  <Remarks localizable="true">Nothing to remark.</Remarks>
+</Table>
