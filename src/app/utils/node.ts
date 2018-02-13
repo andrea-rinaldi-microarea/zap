@@ -1,16 +1,22 @@
 
 declare const __node_fs;
-declare const __path_fs;
+declare const __node_path;
 
 export class Path {
     static basename(p: string, ext?: string): string {
-        return __path_fs.basename(p, ext);
+        return __node_path.basename(p, ext);
     };
+    static join(p1:string, p2:string, p3?:string, p4?:string): string {
+        return __node_path.join(p1,p2,p3?p3:"",p4?p4:"");
+    }
 }
 
 export class Fs {
     static readdirSync(path: string | Buffer, options?: { encoding?: string | null } | string | null): string[] {
         return __node_fs.readdirSync(path, options);
+    }
+    static readFileSync(filename: string, encoding: string): string {
+        return __node_fs.readFileSync(filename, encoding);
     }
 }
   

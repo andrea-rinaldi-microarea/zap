@@ -3,6 +3,7 @@ import { Entity } from '../model/entity.model';
 import { Type, Column } from '../model/column.model';
 import { ElectronService } from 'ngx-electron';
 import { Fs, Path } from '../utils/node';
+import { Xml2jsParser } from '../utils/xml2js';
 
 const ENTITIES_REPO = './dist/assets/entities';
 @Injectable()
@@ -40,6 +41,28 @@ export class EntitiesService {
       return;
     
     if (this.electronService.isElectronApp) {
+      var p = Path.join(ENTITIES_REPO, entityName + '.xml');
+      try {
+        var fileContent = Fs.readFileSync(Path.join(ENTITIES_REPO, entityName + '.xml'), 'utf8'); 
+      }
+      catch (/** @type {?} */ e) {
+        console.log(e); //@@TODO error handling
+        return;
+      }
+      var parser = new Xml2jsParser();
+      parser.parseString(fileContent, (err, result) => {
+        console.log(result);
+        for (let col of result.Table.Fields[0].Column) {
+          var column = new Column(
+            col.$.Name,
+            col.$.Type,
+            col.$.Length
+          );
+          entity.columns.push(column);
+        }
+        //
+      });
+
     } else {
       if (entity.name === "MA_CustSupp") {
         entity.columns = [
