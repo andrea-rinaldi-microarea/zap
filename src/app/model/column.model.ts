@@ -13,6 +13,12 @@ export enum Type {
     Datetime = "Datetime"
 }
 
+export function String2Type(input: string): Type {
+    switch (input) {
+        case "Money": return Type.Money;
+        default: return <Type>input;
+    }
+}
 export class Column {
     constructor(
         public name?: string,

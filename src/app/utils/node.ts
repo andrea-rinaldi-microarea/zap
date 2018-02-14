@@ -18,5 +18,8 @@ export class Fs {
     static readFileSync(filename: string, encoding: string): string {
         return __node_fs.readFileSync(filename, encoding);
     }
+    static writeFileSync(filename: string, data: string, options?: any) {
+        __node_fs.writeFileSync(filename, data, options);
+    }
 }
   

@@ -1,38 +1,77 @@
 import { Column, Type } from './../model/column.model';
 import { InputStream } from './../model/input-stream.model';
 import { Injectable } from '@angular/core';
+import { ElectronService } from 'ngx-electron';
+import { Fs, Path } from '../utils/node';
+import { CsvParse } from '../utils/csv-parse';
 
 @Injectable()
 export class InputStreamService {
 
-  public inputs: string[] = [
-    "Artikel.csv",
-    "Abverkauf.csv",
-    "Lieferanten.csv"
-  ];
+  public inputs: string[] = [];
+  private sourceFolder: string;
 
-  constructor() { }
+  constructor(private electronService: ElectronService) { }
 
-  load(stream: InputStream, maxLines: number) {
-    stream.columns = [];
-    if (stream.hasHeaders) {
-      for (let colname of sample[0]) {
-        stream.columns.push(new Column(colname, Type.String));
+  loadInputList(folder: string) {
+    this.inputs = [];
+    this.sourceFolder = folder;
+    if (this.electronService.isElectronApp) {
+      try {
+        var files = Fs.readdirSync(folder);
+      }
+      catch (/** @type {?} */ e) {
+        console.log(e); //@@TODO error handling
+        return;
+      }
+
+      for (let file of files) {
+        this.inputs.push(file);
       }
     } else {
-      for (let idx in sample[0]) {
+      this.inputs =[
+        "Artikel.csv",
+        "Abverkauf.csv",
+        "Lieferanten.csv"
+      ];
+    }
+  }
+
+  load(stream: InputStream, maxLines: number) {
+    var chunk = [];
+
+    if (this.electronService.isElectronApp) {
+      try {
+        var fileContent = Fs.readFileSync(Path.join(this.sourceFolder, stream.name), 'latin1'); 
+      }
+      catch (/** @type {?} */ e) {
+        console.log(e); //@@TODO error handling
+        return;
+      }
+      chunk = CsvParse.parseSync(fileContent, {delimiter: ';', to: maxLines});
+    } else {
+      for (var l of sampleChunk) {
+        chunk.push(l);
+      }
+    }
+
+    stream.columns = [];
+    if (stream.hasHeaders) {
+      for (let colname of chunk[0]) {
+        stream.columns.push(new Column(colname, Type.String));
+      }
+      chunk.splice(0,1);
+    } else {
+      for (let idx in chunk[0]) {
         stream.columns.push(new Column("[Column " + idx + "]", Type.String));
       }
     }
 
-    stream.sample = [];
-    for (var l = stream.hasHeaders ? 1 : 0; l < Math.min(sample.length, maxLines); l++) {
-      stream.sample.push(sample[l]);
-    }
+    stream.sample = chunk;
   }
 }
 
-export var sample = [
+export var sampleChunk = [
   ["ID1","ID2","ID3","ID4","ID5","Name1","Name2","Name3","Stock","EK-Preis","VK-Preis","Lieferanten ID","Bezeichung Einheit","Bezeichnung Bestelleinheit","Faktor Einheit/Bestelleinheit","Offene Kundenauftragsmenge (in Einheit)"],
 ["5346","","","","","Erbsensuppe","Dose 450g","","0","2,56","5,98","3432","St�ck","VPE","10","80"],
 ["4144","","","","","Bohnensuppe","Dose 450g","","720","2,55","7,88","3432","St�ck","VPE","12","0"],

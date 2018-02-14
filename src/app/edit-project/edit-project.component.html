@@ -11,7 +11,7 @@
               <label for="sourceFolder" class="col-sm-3 col-form-label">source folder</label>
               <div class="col-sm-9">
                 <div class="input-group">
-                  <input type="text" class="form-control" name="sourceFolder" id="sourceFolder" [(ngModel)]="projectService.theProject.sourceFolder">
+                  <input type="text" class="form-control" name="sourceFolder" id="sourceFolder" (ngModelChange)="onSourceFolderChanged($event)" [ngModelOptions]="{ updateOn: 'blur' }" [(ngModel)]="projectService.theProject.sourceFolder">
                   <div class="input-group-append">
                     <span class="input-group-text"><span class="oi oi-ellipses" role="button" (click)="onBrowseSource()"></span></span>
                   </div>

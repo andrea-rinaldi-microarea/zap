@@ -12,7 +12,8 @@ export const AllRules: string[] = [
 
 export class Copy implements Rule {
     apply(source: string, target: Column): string {
-        if (target.type in [ Type.Money, Type.Double, Type.Float, Type.Percent, Type.Quantity ])
+        // if (target.type in [ Type.Money, Type.Double, Type.Float, Type.Percent, Type.Quantity ])
+        if (target.type == Type.Money)
             return source.replace(',','.');
         else
             return source;

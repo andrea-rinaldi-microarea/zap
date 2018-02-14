@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Entity } from '../model/entity.model';
-import { Type, Column } from '../model/column.model';
+import { Type, Column, String2Type } from '../model/column.model';
 import { ElectronService } from 'ngx-electron';
 import { Fs, Path } from '../utils/node';
 import { Xml2jsParser } from '../utils/xml2js';
@@ -16,11 +16,17 @@ export class EntitiesService {
   constructor(private electronService: ElectronService) { 
 
     if (this.electronService.isElectronApp) {
-      var files = Fs.readdirSync(ENTITIES_REPO);
+      try {
+        var files = Fs.readdirSync(ENTITIES_REPO);
+      }
+      catch (/** @type {?} */ e) {
+        console.log(e); //@@TODO error handling
+        return;
+      }
+
       for (let file of files) {
         this.entities.push(new Entity(Path.basename(file, '.xml')));
       }
-      console.log(this.entities);
     } else {
       this.entities.push(new Entity("MA_Items"));
       this.entities.push(new Entity("MA_CustSupp"));
@@ -38,7 +44,10 @@ export class EntitiesService {
   loadColumns(entityName: string) {
     var entity: Entity = this.get(entityName);
     if (!entity) 
-      return;
+      return; //@@TODO error handling
+
+    if (entity.columns.length > 0)
+      return; // already loaded
     
     if (this.electronService.isElectronApp) {
       var p = Path.join(ENTITIES_REPO, entityName + '.xml');
@@ -55,7 +64,7 @@ export class EntitiesService {
         for (let col of result.Table.Fields[0].Column) {
           var column = new Column(
             col.$.Name,
-            col.$.Type,
+            String2Type(col.$.Type),
             col.$.Length
           );
           entity.columns.push(column);
