@@ -10,12 +10,12 @@ export enum Type {
     Float = "Float",
     Enum = "Enum",
     Date = "Date",
-    Datetime = "Datetime"
+    Datetime = "Datetime",
+    Uuid = "uuid"
 }
 
 export function String2Type(input: string): Type {
     switch (input) {
-        case "Money": return Type.Money;
         default: return <Type>input;
     }
 }

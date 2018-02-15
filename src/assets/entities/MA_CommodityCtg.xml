@@ -16,7 +16,7 @@
     <Column Name="TBGuid" Type="uuid" Length="" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Field for internal use.</Column>
     <Column Name="ReverseCharge" Type="Bool" Length="1" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">If enabled, the items that belong to this commodity category are subject to reverse charge in purchase.</Column>
     <Column Name="RCTaxCode" Type="String" Length="4" ReadOnly="" Mandatory="" Default="" Enum="" Reference="Company/MA_TaxCodes" localizable="true">It indicates the reverse charge tax code.</Column>
-    <Column Name="PerishablesType" Type="int" Length="" ReadOnly="" Mandatory="" Default="" Enum="Items/442" Reference="" localizable="true">It indicates the perishables type of the items that belong to this commodity category.</Column>
+    <Column Name="PerishablesType" Type="Enum" Length="" ReadOnly="" Mandatory="" Default="" Enum="Items/442" Reference="" localizable="true">It indicates the perishables type of the items that belong to this commodity category.</Column>
   </Fields>
   <Keys>
     <Key Name="PK_CommodityCtg" Type="Primary">

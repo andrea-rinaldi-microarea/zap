@@ -8,6 +8,7 @@ import { InputStreamService } from '../services/input-stream.service';
 import { Fixed, Rule, Copy } from '../model/rule.model';
 import { Xml } from '../utils/xml';
 import { Path, Fs } from '../utils/node';
+import { InputStreamData } from '../model/input-stream.model';
 
 @Component({
   selector: 'zap-edit-project',
@@ -33,9 +34,6 @@ export class EditProjectComponent implements OnInit {
   }
 
   onSave() {
-    for (let job of this.projectService.theProject.jobs) {
-      job.stream.sample = [];
-    }
     var str = JSON.stringify(this.projectService.theProject);
     this.router.navigateByUrl('/home');
   }
@@ -47,7 +45,9 @@ export class EditProjectComponent implements OnInit {
           DataTables : [
           ]
         }
-        for (let row of job.stream.sample) {
+        var content: InputStreamData = { data: []};
+        this.inputStreamService.load(job.stream, content);
+        for (let row of content.data) {
           var record: any = {};
           var attributes: any = {};
           for (let mapping of job.mappings) {

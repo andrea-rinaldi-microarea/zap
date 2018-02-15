@@ -1,5 +1,5 @@
 import { Column, Type } from './../model/column.model';
-import { InputStream } from './../model/input-stream.model';
+import { InputStream, InputStreamData } from './../model/input-stream.model';
 import { Injectable } from '@angular/core';
 import { ElectronService } from 'ngx-electron';
 import { Fs, Path } from '../utils/node';
@@ -37,8 +37,8 @@ export class InputStreamService {
     }
   }
 
-  load(stream: InputStream, maxLines: number) {
-    var chunk = [];
+  load(stream: InputStream, input: InputStreamData, maxLines?: number) {
+    input.data = [];
 
     if (this.electronService.isElectronApp) {
       try {
@@ -48,26 +48,29 @@ export class InputStreamService {
         console.log(e); //@@TODO error handling
         return;
       }
-      chunk = CsvParse.parseSync(fileContent, {delimiter: ';', to: maxLines});
+      let options = { delimiter: ';' };
+      if (maxLines)
+        options["to"] = maxLines;
+        input.data = CsvParse.parseSync(fileContent, {delimiter: ';', to: maxLines});
     } else {
-      for (var l of sampleChunk) {
-        chunk.push(l);
+      for (let idx = 0; idx <= sampleChunk.length; idx++) {
+        if (idx >= maxLines)
+          break;
+          input.data.push(sampleChunk[idx]);
       }
     }
 
     stream.columns = [];
     if (stream.hasHeaders) {
-      for (let colname of chunk[0]) {
+      for (let colname of input.data[0]) {
         stream.columns.push(new Column(colname, Type.String));
       }
-      chunk.splice(0,1);
+      input.data.splice(0,1);
     } else {
-      for (let idx in chunk[0]) {
+      for (let idx in input.data[0]) {
         stream.columns.push(new Column("[Column " + idx + "]", Type.String));
       }
     }
-
-    stream.sample = chunk;
   }
 }
 

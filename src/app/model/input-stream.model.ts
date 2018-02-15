@@ -1,4 +1,7 @@
 import { Column } from './column.model';
+
+export type InputStreamData = { data: string[][]; }
+
 export class InputStream {
     constructor(
         public name?: string,
@@ -6,6 +9,4 @@ export class InputStream {
     ) {}
     
     columns: Column[] = [];
-
-    sample: string[][] = [];
 }

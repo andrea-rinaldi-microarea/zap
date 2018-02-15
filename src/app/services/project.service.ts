@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Project } from '../model/project.model';
 import { ElectronService } from 'ngx-electron';
-import { InputStream } from '../model/input-stream.model';
+import { InputStream, InputStreamData } from '../model/input-stream.model';
 import { Path } from '../utils/node';
+import { Job } from '../model/job.model';
 
 const sampleProject: Project = {
   name: "Arivata",
@@ -21,11 +22,11 @@ const sampleProject: Project = {
   }]
 }
 
-
 @Injectable()
 export class ProjectService {
 
   public theProject: Project = new Project("");
+  samples: Map<Job, InputStreamData> = new Map<Job, InputStreamData>();
 
   constructor(private electronService: ElectronService) { }
 
