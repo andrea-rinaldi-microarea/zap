@@ -1,0 +1,39 @@
+// $theme-colors: (
+//   "dark": #4A148C,
+//   "light":#F3E5F5
+// );
+
+
+$theme-colors: (
+  "dark": #0D47A1,
+  "light":#BBDEFB
+);
+
+//@import "~bootstrap/dist/css/bootstrap.css";
+@import "node_modules/bootstrap/scss/bootstrap";
+
+.zap-bg-dark {
+    background: theme-color(dark);
+}
+
+.zap-bg-light {
+    background: theme-color-level(dark, -10);
+}
+
+.zap-bg-lighter {
+    background: theme-color-level(dark, -11);
+}
+
+.zap-bg-lightest {
+     background: theme-color-level(dark, -12);
+}
+
+.table .thead-dark th {
+    background: theme-color(dark);
+    border-color: theme-color-level(dark, 1);
+}
+
+.table .thead-light th {
+    background: theme-color(light);
+    border-color: theme-color-level(light, 1);
+}

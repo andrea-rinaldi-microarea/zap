@@ -13,7 +13,7 @@ import { InputStreamData } from '../model/input-stream.model';
 @Component({
   selector: 'zap-edit-project',
   templateUrl: './edit-project.component.html',
-  styleUrls: ['./edit-project.component.css'],
+  styleUrls: ['./edit-project.component.css', './edit-project.component.scss'],
   providers: [ CurrentJobService ]
 })
 export class EditProjectComponent implements OnInit {

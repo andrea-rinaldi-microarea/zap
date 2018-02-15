@@ -1,5 +1,5 @@
 <div class="zap-fullpage">
-  <div class="row">
+  <div class="row zap-bg-lightest pt-2" id="ProjectHeader">
     <div class="col-3">
         <h4>
             Project {{projectService.theProject.name}}
@@ -36,16 +36,16 @@
     </div>
   </div>
   <div class="row zap-fullpage">
-    <div class="col-4 col-md-3 bg-light">
+    <div class="col-4 col-md-3 zap-bg-lightest">
       <zap-jobs-list></zap-jobs-list> 
     </div>
-    <div class="col-8 col-md-9" *ngIf="currJobService.job">
+    <div class="col-8 col-md-9 zap-overflow-auto" *ngIf="currJobService.job">
       <zap-job-detail></zap-job-detail>
       <zap-input-stream></zap-input-stream>
     </div>  
   </div>
 </div>
-<nav class="navbar fixed-bottom navbar-light bg-light">
+<nav class="navbar fixed-bottom navbar-light zap-bg-lighter">
   <div></div>
   <form class="form-inline">
       <button class="btn btn-success mr-2" (click)="onSave()"><span class="oi oi-check"></span>&nbsp;Save and Close</button>

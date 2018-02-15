@@ -20,7 +20,8 @@
       "prefix": "zap",
       "styles": [
         "assets/open-iconic/font/css/open-iconic-bootstrap.css",
-        "styles.css"
+        "styles.css",
+        "styles.scss"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",

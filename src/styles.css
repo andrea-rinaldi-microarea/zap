@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-@import "~bootstrap/dist/css/bootstrap.css";
+
 
 .container-fluid {
     padding-left: 0;
@@ -7,7 +7,6 @@
 }
 
 .zap-main-frame {
-    padding-top: 15px;
     padding-left: 15px;
     padding-right: 15px;
 }
@@ -22,6 +21,10 @@ body, html {
 
 .zap-no-overflow {
     overflow: hidden;
+}
+
+.zap-overflow-auto {
+    overflow: auto;
 }
 
 .zap-fullpage {
