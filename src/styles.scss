@@ -5,27 +5,35 @@
 
 
 $theme-colors: (
-  "dark": #0D47A1,
-  "light":#BBDEFB
+  "dark": #1976D2, // 700
+  "light":#90CAF9, // 200
+  "medium":#2196F3 // 500
 );
 
-//@import "~bootstrap/dist/css/bootstrap.css";
 @import "node_modules/bootstrap/scss/bootstrap";
 
 .zap-bg-dark {
     background: theme-color(dark);
 }
 
+.zap-bg-darker {
+    background: theme-color-level(dark, 3);
+}
+
+.zap-bg-darkest {
+    background: theme-color-level(dark, 6);
+}
+
 .zap-bg-light {
-    background: theme-color-level(dark, -10);
+    background: theme-color(light);
 }
 
 .zap-bg-lighter {
-    background: theme-color-level(dark, -11);
+    background: theme-color-level(light, -8);
 }
 
 .zap-bg-lightest {
-     background: theme-color-level(dark, -12);
+     background: theme-color-level(light, -11);
 }
 
 .table .thead-dark th {
