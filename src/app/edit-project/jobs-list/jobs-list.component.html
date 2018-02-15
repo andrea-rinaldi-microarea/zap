@@ -1,6 +1,6 @@
 <div class="row">
   <span class="d-block py-1 px-2 bg-secondary text-white w-100 text-uppercase">jobs</span>
-  <div class="col-12 bg-light pt-2">
+  <div class="col-12 pt-2">
     <div class="card mb-3" [ngClass]="currJobService.job == job ? 'border-primary' : ''" *ngFor="let job of projectService.theProject.jobs; let index = index" (click)="currJobService.job = job">
       <div class="card-body" >
         {{job.targetEntityName || '[no entity set]'}}

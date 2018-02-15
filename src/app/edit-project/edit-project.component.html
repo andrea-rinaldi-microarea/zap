@@ -1,4 +1,4 @@
-<div style="margin-bottom: 54px;">
+<div class="zap-fullpage">
   <div class="row">
     <div class="col-3">
         <h4>
@@ -35,8 +35,8 @@
         <button class="btn btn-primary" (click)="onConvert()"><span class="oi oi-bolt"></span>&nbsp;Convert</button>
     </div>
   </div>
-  <div class="row">
-    <div class="col-4 col-md-3">
+  <div class="row zap-fullpage">
+    <div class="col-4 col-md-3 bg-light">
       <zap-jobs-list></zap-jobs-list> 
     </div>
     <div class="col-8 col-md-9" *ngIf="currJobService.job">
