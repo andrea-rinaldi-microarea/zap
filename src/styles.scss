@@ -45,3 +45,9 @@ $theme-colors: (
     background: theme-color(light);
     border-color: theme-color-level(light, 1);
 }
+
+
+.container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+}

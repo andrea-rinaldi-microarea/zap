@@ -1,5 +1,5 @@
 <div class="row mb-2">
-  <span class="d-block py-1 px-2 bg-light w-100 text-uppercase">target</span>
+  <span class="d-block py-1 px-2 mb-2 bg-light w-100 text-uppercase">target</span>
   <form class="col-12 form-inline">
     <label for="targetEntity" class="col-3 col-form-label">Target Entity</label>
     <select class="form-control col-7" name="targetEntity" id="targetEntity" (ngModelChange)="onTargetEntityChanged($event)" [(ngModel)]="currJobService.job.targetEntityName">
@@ -39,7 +39,7 @@
     </table>
   </div>
 </div>
-<div class="row">
+<div class="row mb-2">
   <div *ngIf="!add" class="col-1">
       <button class="btn btn-outline-success" [disabled]="!currJobService.job.targetEntityName" (click)="add=!add;onPrepareEntity()"><span class="oi oi-plus" aria-hidden="true"></span></button>
   </div>
