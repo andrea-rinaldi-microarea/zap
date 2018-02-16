@@ -1,7 +1,7 @@
 <div class="row">
   <span class="d-block py-1 px-2 zap-bg-dark text-white w-100 text-uppercase">jobs</span>
   <div class="col-12 pt-2">
-    <div class="card mb-3" [ngClass]="currJobService.job == job ? 'border-primary' : ''" *ngFor="let job of projectService.theProject.jobs; let index = index" (click)="currJobService.job = job">
+    <div class="card mb-3" [ngClass]="currJobService.job == job ? 'border-primary' : ''" *ngFor="let job of projectService.theProject.jobs; let index = index" (click)="onSelectJob(job)">
       <div class="card-body" >
         {{job.targetEntityName || '[no entity set]'}}
         <p class="card-text text-right"><small class="text-muted"><span class="oi oi-trash icon-button" role="button" aria-hidden="true" (click)="onDeleteJob(index)"></span></small></p>
