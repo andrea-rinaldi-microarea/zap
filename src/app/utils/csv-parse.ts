@@ -1,5 +1,5 @@
-declare const __csvParse;
-declare const __csvParseSync;
+import __csvParse from 'csv-parse';
+import __csvParseSync from 'csv-parse/lib/sync';
 
 export class CsvParse {
     static parse(data: string, options : any, callback: ( err: any, output: any ) => void) {

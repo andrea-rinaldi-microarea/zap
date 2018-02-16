@@ -1,4 +1,4 @@
-declare const __xml2js;
+import __xml2js from 'xml2js';
 
 export class Xml2jsParser {
     private __parser: any;
