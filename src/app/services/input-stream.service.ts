@@ -17,6 +17,8 @@ export class InputStreamService {
     this.inputs = [];
     this.sourceFolder = folder;
     if (this.electronService.isElectronApp) {
+      if (!this.sourceFolder)
+        return;
       try {
         var files = Fs.readdirSync(folder);
       }

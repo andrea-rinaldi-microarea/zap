@@ -19,6 +19,18 @@ export function String2Type(input: string): Type {
         default: return <Type>input;
     }
 }
+
+export function fromColumn(source: Column): Column {
+    return new Column(source.name, source.type, source.length);
+}
+
+export function columnTypeDescription(column: Column) : string {
+    switch (column.type) {
+        case Type.String : return column.type.toString() + "(" + column.length + ")";
+        default :  return column.type.toString();
+    }
+}
+
 export class Column {
     constructor(
         public name?: string,
@@ -26,17 +38,4 @@ export class Column {
         public length?: number
     )
     {}
-
-    assign(column: Column) {
-        this.name = column.name;
-        this.type = column.type;
-        this.length = column.length;
-    }
-
-    typeDescription() : string {
-        switch (this.type) {
-            case Type.String : return this.type.toString() + "(" + this.length + ")";
-            default :  return this.type.toString();
-        }
-    }
 }

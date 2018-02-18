@@ -4,7 +4,7 @@ import { CurrentJobService } from '../current-job.service';
 import { EntitiesService } from '../../services/entities.service';
 import { Entity } from '../../model/entity.model';
 import { Mapping } from '../../model/mapping.model';
-import { Column } from '../../model/column.model';
+import { Column, fromColumn, columnTypeDescription } from '../../model/column.model';
 import { AllRules } from '../../model/rule.model';
 
 @Component({
@@ -18,9 +18,11 @@ export class JobDetailComponent implements OnInit {
   selectedColumnName: string;
   allRules: string[];
   curr: Mapping;
+  inAddingColumn: boolean = false;
   
   @HostListener('document:click', ['$event']) clickedOutside($event){
     this.curr = null;
+    this.inAddingColumn = false;
   }
   
   constructor(private currJobService: CurrentJobService, private entitiesService: EntitiesService) { 
@@ -30,19 +32,21 @@ export class JobDetailComponent implements OnInit {
   ngOnInit() {
   }
 
-  onTargetEntityChanged($event: any) {
-    this.entitiesService.loadColumns($event);
+  onAddingColumn($event) {
+    $event.preventDefault();
+    $event.stopPropagation();
+    this.curr = null; 
   }
 
   onAddColumn() {
-    var column: Column = new Column();
-    column.assign(this.entity.getColumn(this.selectedColumnName));
+    var column: Column = fromColumn(this.entity.getColumn(this.selectedColumnName));
     this.currJobService.job.mappings.push(new Mapping(column));
     this.selectedColumnName = null;
   }
 
   onPrepareEntity() {
     this.entity = this.entitiesService.get(this.currJobService.job.targetEntityName);
+    this.entitiesService.loadColumns(this.entity.name);
   }
 
   clickedInRow($event: Event, mapping: Mapping){
@@ -53,6 +57,7 @@ export class JobDetailComponent implements OnInit {
     } else {
       this.curr = mapping;
     }
+    this.inAddingColumn = false;
   }
 
   clickedInColumn($event: Event){
@@ -61,12 +66,15 @@ export class JobDetailComponent implements OnInit {
   }
 
   ruleDescription(mapping: Mapping): string {
-    //{{mapping.sourceColumn ? currJobService.job.stream.columns[mapping.sourceColumn].name : "[not set]"}}
     if (mapping.rule == 'Fixed') {
       return mapping.fixedValue ? mapping.fixedValue : "[empty]"; 
     } else if (mapping.rule == 'Copy') {
       return mapping.sourceColumn >= 0 ? this.currJobService.job.stream.columns[mapping.sourceColumn].name : "[not set]"
     }
     return "[not set]";
+  }
+
+  typeDescription(col: Column) : string {
+    return columnTypeDescription(col)
   }
 }

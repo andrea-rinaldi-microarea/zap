@@ -27,6 +27,7 @@ export class EditProjectComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.inputStreamService.loadInputList(this.projectService.theProject.sourceFolder);
   }
 
   onClose() {
@@ -34,7 +35,16 @@ export class EditProjectComponent implements OnInit {
   }
 
   onSave() {
-    var str = JSON.stringify(this.projectService.theProject);
+    if (this.electronService.isElectronApp) {
+      if (!this.projectService.theProject.filePath) {
+        var folders = this.electronService.remote.dialog.showOpenDialog({title:'Output Folder', properties: ["openDirectory"] });
+        if (!folders) {
+          return;
+        }
+        this.projectService.theProject.filePath = Path.join(folders[0], this.projectService.theProject.name + '.zapproj');
+      }
+    }
+    this.projectService.save();
     this.router.navigateByUrl('/home');
   }
 
@@ -73,15 +83,13 @@ export class EditProjectComponent implements OnInit {
   onBrowseSource() {
     if (this.electronService.isElectronApp) {
       var folders = this.electronService.remote.dialog.showOpenDialog({title:'Source Folder', properties: ["openDirectory"] });
-      console.log(folders);
-      if (folders) {
-        this.projectService.theProject.sourceFolder = folders[0];
-        this.inputStreamService.loadInputList(this.projectService.theProject.sourceFolder);
-        //@TODO ask and clean up all input from jobs
-      }
-    } else {
-      this.inputStreamService.loadInputList(this.projectService.theProject.sourceFolder);
+      if (!folders) 
+        return;
+      this.projectService.theProject.sourceFolder = folders[0];
+      //@TODO ask and clean up all input from jobs
     }
+    
+    this.inputStreamService.loadInputList(this.projectService.theProject.sourceFolder);
   }
 
   onBrowseOutput() {

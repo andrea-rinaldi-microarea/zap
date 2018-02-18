@@ -2,7 +2,7 @@
   <span class="d-block py-1 px-2 mb-2 bg-light w-100 text-uppercase">target</span>
   <form class="col-12 form-inline">
     <label for="targetEntity" class="col-3 col-form-label">Target Entity</label>
-    <select class="form-control col-7" name="targetEntity" id="targetEntity" (ngModelChange)="onTargetEntityChanged($event)" [(ngModel)]="currJobService.job.targetEntityName">
+    <select class="form-control col-7" name="targetEntity" id="targetEntity" [(ngModel)]="currJobService.job.targetEntityName">
       <option *ngFor="let entity of entitiesService.entities">{{entity.name}}</option>
     </select>
   </form>
@@ -19,7 +19,7 @@
       <tbody>
         <tr *ngFor="let mapping of currJobService.job.mappings" (click)="clickedInRow($event, mapping)">
           <td width="25%">{{mapping.targetColumn.name}}</td>
-          <td width="25%">{{mapping.targetColumn.typeDescription()}}</td>
+          <td width="25%">{{typeDescription(mapping.targetColumn)}}</td>
           <td *ngIf="curr!=mapping" width="16.5%">{{mapping.rule ? mapping.rule : "[not set]"}}</td>
           <td *ngIf="curr!=mapping" width="33.5%">{{ruleDescription(mapping)}}</td>
           <td colspan="2" *ngIf="curr==mapping" (click)="clickedInColumn($event)">
@@ -39,17 +39,17 @@
     </table>
   </div>
 </div>
-<div class="row mb-2">
-  <div *ngIf="!add" class="col-1">
-      <button class="btn btn-outline-success" [disabled]="!currJobService.job.targetEntityName" (click)="add=!add;onPrepareEntity()"><span class="oi oi-plus" aria-hidden="true"></span></button>
+<div class="row mb-2" (click)="onAddingColumn($event)">
+  <div *ngIf="!inAddingColumn" class="col-1">
+      <button class="btn btn-outline-success" [disabled]="!currJobService.job.targetEntityName" (click)="inAddingColumn = true;onPrepareEntity()"><span class="oi oi-plus" aria-hidden="true"></span></button>
   </div>
-  <div *ngIf="add" class="col-8">
+  <div *ngIf="inAddingColumn" class="col-8">
     <form class="form-inline">
       <select class="form-control col-9" name="targetColumn" id="targetColumn" [(ngModel)]="selectedColumnName">
         <option *ngFor="let column of entity.columns">{{column.name}}</option>
       </select>
-      <button class="btn btn-outline-success col-1 ml-1" [disabled]="!selectedColumnName"(click)="add=!add;onAddColumn()"><span class="oi oi-check"></span></button>
-      <button class="btn btn-outline-secondary col-1 ml-1" (click)="add=!add"><span class="oi oi-x"></span></button>
+      <button class="btn btn-outline-success col-1 ml-1" [disabled]="!selectedColumnName"(click)="inAddingColumn = false;onAddColumn()"><span class="oi oi-check"></span></button>
+      <button class="btn btn-outline-secondary col-1 ml-1" (click)="inAddingColumn = false"><span class="oi oi-x"></span></button>
     </form>
   </div>
 </div>
