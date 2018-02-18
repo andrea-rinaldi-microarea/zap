@@ -1,0 +1,51 @@
+<?xml version="1.0" standalone="yes"?>
+
+<Enums>
+  <Tag name="Ledger Type" value="46">
+  Indicates the type of ledger.
+    <Item name="Assets" value="0" stored="3014656" />
+    <Item name="Equity and Liabilities" value="1" stored="3014657" />
+    <Item name="Memorandum" value="2" stored="3014658" />
+    <Item name="Loss (Expenses)" value="3" stored="3014659" />
+    <Item name="Profit (Incomes)" value="4" stored="3014660" />
+    <Item name="Transitional" value="5" stored="3014661" />
+  </Tag>
+  <Tag name="Account Type" value="47" defaultValue="2">
+  Indicates the type of account.
+    <Item name="Customer" value="0" stored="3080192" />
+    <Item name="Supplier" value="1" stored="3080193" />
+    <Item name="Pure Accounting" value="2" stored="3080194" />
+  </Tag>
+  <Tag name="Ignore Debit and Credit" value="125" defaultValue="2">
+  Indicates the type.
+    <Item name="Debit" value="0" stored="8192000" />
+    <Item name="Credit" value="1" stored="8192001" />
+    <Item name="Ignore" value="2" stored="8192002" />
+  </Tag>
+  <Tag name="Direct Account Type" value="126" defaultValue="4">
+  Indicates the type of direct account.
+    <Item name="Revenues" value="0" stored="8257536" />
+    <Item name="Variable Cost" value="1" stored="8257537" />
+    <Item name="Specific Fixed Cost" value="2" stored="8257538" />
+    <Item name="Common Fixed Cost" value="3" stored="8257539" />
+    <Item name="Ignore" value="4" stored="8257540" />
+  </Tag>
+  <Tag name="Full Account Type" value="127" defaultValue="5">
+  Indicates the type of full account.
+    <Item name="Revenues" value="0" stored="8323072" />
+    <Item name="Primary Cost" value="1" stored="8323073" />
+    <Item name="Manufacturing Cost" value="2" stored="8323074" />
+    <Item name="Total Cost" value="3" stored="8323075" />
+    <Item name="Economic-technical Cost" value="4" stored="8323076" />
+    <Item name="Ignore" value="5" stored="8323077" />
+    <Item name="Economic-technical Cost (Taxes Incl.)" value="6" stored="8323078" />
+  </Tag>
+  <Tag name="Document to be issued/received type" value="472" defaultValue="0">
+    Indicates the type of documents to be issued/received.
+    <Item name="Ignore" value="0" stored="30932992" />
+    <Item name="Invoices To Be Issued" value="1" stored="30932993" />
+    <Item name="Credit Notes To Be Issued" value="2" stored="30932994" />
+    <Item name="Invoices To Be Received" value="3" stored="30932995" />
+    <Item name="Credit Notes To Be Received" value="4" stored="30932996" />
+  </Tag>
+</Enums>

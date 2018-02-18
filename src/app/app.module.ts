@@ -1,4 +1,3 @@
-import { InputStreamService } from './services/input-stream.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
@@ -13,6 +12,8 @@ import { JobsListComponent } from './edit-project/jobs-list/jobs-list.component'
 import { JobDetailComponent } from './edit-project/job-detail/job-detail.component';
 import { EntitiesService } from './services/entities.service';
 import { InputStreamComponent } from './edit-project/input-stream/input-stream.component';
+import { EnumsService } from './services/enums.service';
+import { InputStreamService } from './services/input-stream.service';
 
 const ROUTES = [
   {
@@ -45,7 +46,7 @@ const ROUTES = [
     NgxElectronModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [ProjectService, EntitiesService, InputStreamService],
+  providers: [ProjectService, EntitiesService, InputStreamService, EnumsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

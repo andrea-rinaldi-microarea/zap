@@ -1,0 +1,55 @@
+<?xml version="1.0" standalone="yes"?>
+
+<Enums>
+  <Tag name="References" value="8" defaultValue="1">
+  Indicates the type of references.
+    <Item name="Separately" value="0" stored="524288" />
+    <Item name="Before Each Items List" value="1" stored="524289" />
+    <Item name="Document Top" value="2" stored="524290" />
+    <Item name="Document Bottom" value="3" stored="524291" />
+    <!--<Item name="Summ. by Item" value="4" stored="524292">Summarized by item.</Item>-->
+    <Item name="Standard" value="5" stored="524293" />
+  </Tag>
+  <Tag name="CustSupp Type" value="49">
+  Indicates the type between customers and suppliers.
+    <Item name="Customer" value="0" stored="3211264" />
+    <Item name="Supplier" value="1" stored="3211265" />
+  </Tag>
+  <Tag name="Debit Tax on Free Samples" value="50" defaultValue="2">
+  Indicates the type between Debit tax and Free Samples.
+    <Item name="Always" value="0" stored="3276800" />
+    <Item name="Never" value="1" stored="3276801" />
+    <Item name="Item Basis" value="2" stored="3276802" />
+  </Tag>
+  <Tag name="CustSupp Kind" value="118">
+  Indicates the type of suppliers origin.
+    <Item name="Domestic" value="0" stored="7733248" />
+    <Item name="EU" value="1" stored="7733249" />
+    <Item name="Non-EU" value="2" stored="7733250" />
+  </Tag>
+  <Tag name="Send type" value="173">
+  Indicates the type of send.
+    <Item name="No Send" value="0" stored="11337728" />
+    <Item name="Email" value="1" stored="11337729"  />
+    <Item name="Fax" value="2" stored="11337730"  />
+  </Tag>
+  <Tag name="Use Customer/Supplier Email" value="174" defaultValue="1">
+  Indicates if the document must be sent to Email address set in customer/supplier master data.
+    <Item name="Never" value="0" stored="11403264" />
+    <Item name="Always" value="1" stored="11403265" />
+    <Item name="When the reference's e-Mail is missed" value="2" stored="11403266" />
+  </Tag>
+  <Tag name="Mail send type" value="190">
+    Indicates the type of send mail.
+    <Item name="No Send" value="0" stored="12451840" />   
+    <Item name="To" value="1" stored="12451841" />
+    <Item name="Cc" value="2" stored="12451842" />
+    <Item name="Bcc" value="3" stored="12451843" />   
+  </Tag>
+  <Tag name="ICMS Taxpayer Type" value="461" defaultValue="0">
+    Indicates ICMS Taxpayer Type.
+    <Item name="ICMS Taxpayer" value="0" stored="30212096" />
+    <Item name="Exempt Taxpayer" value="1" stored="30212097" />
+    <Item name="No Taxpayer" value="2" stored="30212098" />
+  </Tag>
+</Enums>

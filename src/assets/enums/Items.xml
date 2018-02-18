@@ -1,0 +1,67 @@
+<?xml version="1.0" standalone="yes"?>
+
+<Enums>
+  <Tag name="Proposed Value" value="60">
+    Indicates the type of the proposed value.
+    <Item name="Application Default" value="0" stored="3932160" />
+    <Item name="Last Cost" value="1" stored="3932161" />
+    <Item name="Average Sale Price" value="3" stored="3932163" />
+    <Item name="Average Purchase Price" value="4" stored="3932164" />
+    <Item name="Standard Cost" value="5" stored="3932165" />
+    <Item name="Policy Sale Price " value="6" stored="3932166" />
+    <Item name="Policy Purchase Price " value="7" stored="3932167" />
+  </Tag>
+  <Tag name="Product Type" value="108">
+    Indicates the type of product.
+    <Item name="General" value="0" stored="7077888" />
+  </Tag>
+  <Tag name="Stub Book Type" value="152">
+    Indicates the type of stub book.
+    <Item name="Sales" value="0" stored="9961472" />
+    <Item name="Purchases" value="1" stored="9961473" />
+    <Item name="Other" value="2" stored="9961474" />
+  </Tag>
+  <Tag name="Item Kind" value="342" defaultValue="2">
+    Indicates the kind of item.
+    <Item name="Semifinished" value="0" stored="22413312" />
+    <Item name="Finished Product" value="1" stored="22413313" />
+    <Item name="Purchase" value="2" stored="22413314" />
+  </Tag>
+  <Tag name="Lead Time Type" value="344" defaultValue="0">
+    Indicates the lead time type.
+    <Item name="Total" value="0" stored="22544384" />
+    <Item name="Multiple" value="1" stored="22544385" />
+    <Item name="Proportional" value="2" stored="22544386" />
+  </Tag>
+  <Tag name="Loading Criterion Valuation" value="315" defaultValue="0">
+    Indicates the loading criterion valuation.
+    <Item name="Production Actual Cost" value="0" stored="20643840" />
+    <Item name="Standard" value="1" stored="20643841" />
+  </Tag>
+  <Tag name="Item post to inspection" value="316" defaultValue="0">
+    Indicates if the item is subjectd to Inspection.
+    <Item name="Set in Item Master" value="0" stored="20709376" />
+    <Item name="Yes" value="1" stored="20709377" />
+    <Item name="No" value="2" stored="20709378" />
+  </Tag>
+  <Tag name="Comparable UoM Coeff." value="178">
+    Indicates the type of comparable unit of measure coefficient.
+    <Item name="None" value="0" stored="11665408" />
+    <Item name="1" value="1" stored="11665409" />
+    <Item name="2" value="2" stored="11665410" />
+    <Item name="3" value="3" stored="11665411" />
+    <Item name="4" value="4" stored="11665412" />
+  </Tag>
+  <Tag name="Use Supplier Lot as New Lot Number" value="432" defaultValue="0">
+    Indicates that a each new Lot is created with a number equal to the Supplier Lot number.
+    <Item name="Standard" value="0" stored="28311552" />
+    <Item name="Yes" value="1" stored="28311553" />
+    <Item name="No" value="2" stored="28311554" />
+  </Tag>
+  <Tag name="Perishables Type" value="442" defaultValue="2">
+	Indicates Perishables Type of a Commodity Category.
+	<Item name="Perishables Within 60 Days" value="0" stored="28966912" />
+	<Item name="Perishables Over 60 Days" value="1" stored="28966913" />
+	<Item name="Other" value="2" stored="28966914" />
+  </Tag>
+</Enums>

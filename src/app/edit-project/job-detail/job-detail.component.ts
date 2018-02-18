@@ -6,6 +6,7 @@ import { Entity } from '../../model/entity.model';
 import { Mapping } from '../../model/mapping.model';
 import { Column, fromColumn, columnTypeDescription } from '../../model/column.model';
 import { AllRules } from '../../model/rule.model';
+import { EnumsService } from './../../services/enums.service';
 
 @Component({
   selector: 'zap-job-detail',
@@ -25,7 +26,11 @@ export class JobDetailComponent implements OnInit {
     this.inAddingColumn = false;
   }
   
-  constructor(private currJobService: CurrentJobService, private entitiesService: EntitiesService) { 
+  constructor(
+    private currJobService: CurrentJobService, 
+    private entitiesService: EntitiesService,
+    private enumsService: EnumsService
+  ) { 
     this.allRules = AllRules;
   }
 
