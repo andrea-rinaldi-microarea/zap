@@ -17,8 +17,12 @@ export class CurrentJobService {
 
   refreshSample() {
     this.sample = this.projectService.samples.get(this.job);
-    if (!this.sample)
+    if (!this.sample) {
       this.sample = { data: [] };
+      if (this.job.stream.name) {
+        this.loadSample();
+      }
+    }
   }
 
   loadSample() {
