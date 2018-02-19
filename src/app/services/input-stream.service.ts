@@ -74,6 +74,18 @@ export class InputStreamService {
       }
     }
   }
+
+  getColumnNo(stream: InputStream, columnName: string): number {
+    if (columnName === "")
+      return -1;
+    for (let col = 0; col < stream.columns.length; col++) {
+      var s = stream.columns[col].name;
+      if (stream.columns[col].name == columnName) {
+          return col;
+      }
+    }      
+    return -1;
+  } 
 }
 
 export var sampleChunk = [

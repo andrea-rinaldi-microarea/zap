@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Table Name="MA_ItemsPriceLists" Module="PricePolicies" Document="Document.ERP.Items.Documents.Items" Namespace="Table.ERP.PricePolicies.Dbl.MA_ItemsPriceLists" RuntimeClass="TItemsPriceLists" localize="Items Price Lists" Reference="">
+  <Overview localizable="true">This table contains item price lists. For the same item and list, it is possible to manage different price for different quantity brackets.</Overview>
+  <Fields>
+    <Column Name="Item" Type="String" Length="21" ReadOnly="" Mandatory="X" Default="X" Enum="" Reference="Table.ERP.Items.Dbl.MA_Items" localizable="true">Item code. It links this table with the MA_Items table.</Column>
+    <Column Name="PriceList" Type="String" Length="8" ReadOnly="" Mandatory="X" Default="X" Enum="" Reference="Table.ERP.PricePolicies.Dbl.MA_PriceLists" localizable="true">Price list code. It links this table with the MA_PriceLists table.</Column>
+    <Column Name="PriceListUoM" Type="String" Length="8" ReadOnly="" Mandatory="" Default="" Enum="" Reference="Table.ERP.Items.Dbl.MA_UnitsOfMeasure" localizable="true">This field can contain one of the unit of measure planned for the current item. If the value is left blank, the base unit of measure is assumed.</Column>
+    <Column Name="LastModificationDate" Type="DateTime" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Last modification date. It is automatically updated by the program.</Column>
+    <Column Name="ValidityStartingDate" Type="Date" Length="0" ReadOnly="" Mandatory="X" Default="" Enum="" Reference="" localizable="true">Validity starting date. It is automatically proposed according to the Price List master data but it can be manually modified by the user.</Column>
+    <Column Name="ValidityEndingDate" Type="Date" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Validity ending date. It is automatically proposed according to the Price List master data but it can be manually modified by the user.</Column>
+    <Column Name="Qty" Type="Quantity" Length="0" ReadOnly="" Mandatory="X" Default="X" Enum="" Reference="" localizable="true">Quantity.</Column>
+    <Column Name="Price" Type="Money" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Price.</Column>
+    <Column Name="Discount1" Type="Percent" Length="0" ReadOnly="X" Mandatory="" Default="X" Enum="" Reference="" localizable="true">Discount 1 percentage (cascade discount). It is automatically calculated according to the formula discount.</Column>
+    <Column Name="Discount2" Type="Percent" Length="0" ReadOnly="X" Mandatory="" Default="X" Enum="" Reference="" localizable="true">Discount 2 percentage (cascade discount). It is automatically calculated according to the formula discount.</Column>
+    <Column Name="DiscountFormula" Type="String" Length="16" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Discount formula.</Column>
+    <Column Name="WithTax" Type="Bool" Length="1" ReadOnly="" Mandatory="" Default="X" Enum="" Reference="" localizable="true">If set the program will consider the list price to be inclusive of VAT.</Column>
+    <Column Name="Discounted" Type="Bool" Length="1" ReadOnly="" Mandatory="" Default="X" Enum="" Reference="" localizable="true">If set the program will assume that this value must not be associated with a discount.</Column>
+    <Column Name="Disabled" Type="Bool" Length="1" ReadOnly="" Mandatory="" Default="X" Enum="" Reference="" localizable="true">It indicates if the price list edition is disabled.</Column>
+    <Column Name="AlwaysShow" Type="Bool" Length="1" ReadOnly="" Mandatory="" Default="X" Enum="" Reference="" localizable="true">If set the current price list is always displayed in sale documents.</Column>
+    <Column Name="Notes" Type="String" Length="32" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Filed in which it is possible to insert the descriptive notes.</Column>
+  </Fields>
+  <Keys>
+    <Key Name="PK_ItemsPriceLists" Type="Primary">
+      <Column Name="Item" localizable="true" />
+      <Column Name="PriceList" localizable="true" />
+      <Column Name="ValidityStartingDate" localizable="true" />
+      <Column Name="Qty" localizable="true" />
+    </Key>
+    <Key Name="IX_MA_ItemsPriceLists_1" Type="Index">
+      <Column Name="PriceList" localizable="true" />
+      <Column Name="Item" localizable="true" />
+      <Column Name="ValidityStartingDate" localizable="true" />
+      <Column Name="Qty" localizable="true" />
+    </Key>
+  </Keys>
+  <Remarks localizable="true">Nothing to remark.</Remarks>
+</Table>

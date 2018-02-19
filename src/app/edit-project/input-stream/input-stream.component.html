@@ -11,6 +11,7 @@
         with headers
       </label>
     </div>
+    <input class="form-control col-2 ml-1" name="skipRule" id="skipRule" type="text" [(ngModel)]="currJobService.job.stream.skip">
     <button class="btn btn-outline-success col-1 ml-1" [disabled]="!currJobService.job.stream.name"(click)="onLoadStream()">Load</button>
   </form>
 </div>

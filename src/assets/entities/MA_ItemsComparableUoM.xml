@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Table Name="MA_ItemsComparableUoM" Module="Items" Document="Document.ERP.Items.Documents.Items" Namespace="Table.ERP.Items.Dbl.MA_ItemsComparableUoM" RuntimeClass="TItemsComparableUoM" localize="Items Comparable UoM" Reference="">
+  <Overview localizable="true">This table contains the items comparable unit of misure. &lt;br&gt;It has a relaction zero to one with &lt;A href="MA_Items.htm"&gt;MA_Items&lt;/A&gt;.</Overview>
+  <Fields>
+    <Column Name="Item" Type="String" Length="21" ReadOnly="X" Mandatory="X" Default="X" Enum="" Reference="" localizable="true">Item code. It links this table with the MA_Items table.</Column>
+    <Column Name="ComparableUoM" Type="String" Length="8" ReadOnly="" Mandatory="X" Default="" Enum="" Reference="" localizable="true">Alternative unit of measure.</Column>
+    <Column Name="NoOfPacksCompUoM" Type="Quantity" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">It contains the number of packs in comparable unit of measure.</Column>
+    <Column Name="BaseUoMQty" Type="Quantity" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">It contains the quantity in base unit of measure.</Column>
+    <Column Name="CompUoMQty" Type="Quantity" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">It contains the quantity in comparable unit of measure.</Column>
+    <Column Name="Factor1" Type="Quantity" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">First coefficient. It is used in the management of the 4 coefficients.</Column>
+    <Column Name="Factor1Description" Type="String" Length="16" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Description of the first coefficient.</Column>
+    <Column Name="Factor2" Type="Quantity" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Second coefficient. It is used in the management of the 4 coefficients.</Column>
+    <Column Name="Factor2Description" Type="String" Length="16" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Description of the second coefficient.</Column>
+    <Column Name="Factor3" Type="Quantity" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Third coefficient. It is used in the management of the 4 coefficients.</Column>
+    <Column Name="Factor3Description" Type="String" Length="16" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Description of the third coefficient.</Column>
+    <Column Name="Notes" Type="String" Length="32" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Descriptive text. It can be manually entered by the user.</Column>
+    <Column Name="Factor4" Type="Quantity" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Fourth coefficient. It is used in the management of the 4 coefficients.</Column>
+    <Column Name="Factor4Description" Type="String" Length="16" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Description of the fourth coefficient.</Column>
+    <Column Name="GrossWeight" Type="Quantity" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">It contains the gross weight in comparable unit of measure.</Column>
+    <Column Name="GrossVolume" Type="Quantity" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">It contains the gross volume in comparable unit of measure.</Column>
+    <Column Name="Packaging" Type="Bool" Length="1" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">It establishes if the alternative unit of measure is packaging type.</Column>
+    <Column Name="IsDisabled" Type="Bool" Length="1" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">It establishes if the alternative unit of measure is disabled.</Column>
+  </Fields>
+  <Keys>
+    <Key Name="PK_ItemsComparableUoM" Type="Primary">
+      <Column Name="Item" localizable="true" />
+      <Column Name="ComparableUoM" localizable="true" />
+    </Key>
+  </Keys>
+  <Remarks localizable="true">Nothing to remark.</Remarks>
+</Table>

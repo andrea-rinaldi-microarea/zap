@@ -9,4 +9,6 @@ export class InputStream {
     ) {}
     
     columns: Column[] = [];
+
+    skip: string = "";
 }

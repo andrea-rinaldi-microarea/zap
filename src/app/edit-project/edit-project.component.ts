@@ -58,6 +58,9 @@ export class EditProjectComponent implements OnInit {
         var content: InputStreamData = { data: []};
         this.inputStreamService.load(job.stream, content);
         for (let row of content.data) {
+          var checkField = this.inputStreamService.getColumnNo(job.stream, job.stream.skip);
+          if (checkField != -1 && row[checkField] === "")
+            continue;
           var record: any = {};
           var attributes: any = {};
           for (let mapping of job.mappings) {
