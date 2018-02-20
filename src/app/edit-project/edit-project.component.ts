@@ -48,6 +48,16 @@ export class EditProjectComponent implements OnInit {
     this.router.navigateByUrl('/home');
   }
 
+  matchCondition(column: string, condition: string): boolean {
+    if (condition === "empty") {
+      return column === "";
+    } else if (condition === "not-empty") {
+      return column !== "";
+    } else {
+      return false;
+    }
+  }
+
   onConvert() {
     if (this.electronService.isElectronApp) {
       for (let job of this.projectService.theProject.jobs) {
@@ -58,9 +68,12 @@ export class EditProjectComponent implements OnInit {
         var content: InputStreamData = { data: []};
         this.inputStreamService.load(job.stream, content);
         for (let row of content.data) {
-          var checkField = this.inputStreamService.getColumnNo(job.stream, job.stream.skip);
-          if (checkField != -1 && row[checkField] === "")
-            continue;
+          if  (
+                job.stream.whereColumn && job.stream.whereColumn != -1 &&
+                !this.matchCondition(row[job.stream.whereColumn], job.stream.whereCondition)
+              ) {
+            continue;        
+          }
           var record: any = {};
           var attributes: any = {};
           for (let mapping of job.mappings) {
