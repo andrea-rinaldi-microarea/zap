@@ -36,7 +36,7 @@
     <div class="col-4 col-md-3 zap-bg-lightest">
       <zap-jobs-list></zap-jobs-list> 
     </div>
-    <div class="col-8 col-md-9 zap-overflow-auto" style="height: calc(100% - 215px);" *ngIf="currJobService.job">
+    <div class="col-8 col-md-9 zap-overflow-auto" *ngIf="currJobService.job" style="height: calc(100% - 215px);">
       <zap-job-detail></zap-job-detail>
       <zap-input-stream></zap-input-stream>
     </div>  
