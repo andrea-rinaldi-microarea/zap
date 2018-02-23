@@ -1,9 +1,6 @@
 <div class="zap-fullpage">
   <div class="row zap-bg-lightest pt-2" id="ProjectHeader">
     <div class="col-3">
-        <h4>
-            Project {{projectService.theProject.name}}
-        </h4>
     </div>
     <div class="col-7">
       <form>
@@ -39,7 +36,7 @@
     <div class="col-4 col-md-3 zap-bg-lightest">
       <zap-jobs-list></zap-jobs-list> 
     </div>
-    <div class="col-8 col-md-9 zap-overflow-auto" *ngIf="currJobService.job">
+    <div class="col-8 col-md-9 zap-overflow-auto" style="height: calc(100% - 215px);" *ngIf="currJobService.job">
       <zap-job-detail></zap-job-detail>
       <zap-input-stream></zap-input-stream>
     </div>  

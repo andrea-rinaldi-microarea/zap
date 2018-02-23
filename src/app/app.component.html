@@ -4,6 +4,10 @@
       <img src="assets/images/zap-logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
       Zap
     </span>
+    <span class="navbar-text h4" *ngIf="projectService.theProject.name">
+      Project {{projectService.theProject.name}}
+    </span>
+    <span></span>
   </nav>
   <div class="zap-main-frame zap-fullpage">
     <router-outlet></router-outlet>
