@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Table Name="MA_ItemsGoodsData" Module="Items" Document="Document.ERP.Items.Documents.Items" Namespace="Table.ERP.Items.Dbl.MA_ItemsGoodsData" RuntimeClass="TItemsGoodsData" localize="Items Goods Data " Reference="">
+  <Overview localizable="true">This table contains the data concerning the goods items.&lt;br&gt; It has a relaction zero to one with &lt;A href="MA_Items.htm"&gt;MA_Items&lt;/A&gt;.</Overview>
+  <Fields>
+    <Column Name="Item" Type="String" Length="21" ReadOnly="X" Mandatory="X" Default="X" Enum="" Reference="" localizable="true">Item code. It links this table with the MA_Items table.</Column>
+    <Column Name="Supplier" Type="String" Length="12" ReadOnly="" Mandatory="" Default="" Enum="" Reference="CustomersSuppliers/MA_CustSupp" localizable="true">Preferred Supplier. It is used by the Generate Purchase Orders from Reserved/Shortage procedure.</Column>
+    <Column Name="Location" Type="String" Length="32" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Descriptive field. It displays where it is possible to find the item.</Column>
+    <Column Name="DefaultLocation" Type="String" Length="16" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Default location of the item.</Column>
+    <Column Name="Department" Type="String" Length="8" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Item department.</Column>
+    <Column Name="Appearance" Type="String" Length="16" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Descriptive field used in the print of the delivery notes.</Column>
+    <Column Name="NoOfPacks" Type="Integer" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Number of Packs. If entered, it will be included automatically by the program in sales documents.</Column>
+    <Column Name="NetWeight" Type="Double" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Item net weight. If entered, it will be included automatically by the program in sales documents.</Column>
+    <Column Name="GrossWeight" Type="Double" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Item gross weight. If entered, it will be included automatically by the program in sales documents.</Column>
+    <Column Name="GrossVolume" Type="Quantity" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Item gross volume. If entered, it will be included automatically by the program in sales documents.</Column>
+    <Column Name="PacksIssueUoM" Type="String" Length="8" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Unit of misure for pack to be issued.</Column>
+    <Column Name="ReceiptUoM" Type="String" Length="8" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Unit of misure used in receipt documents.</Column>
+    <Column Name="IssueUoM" Type="String" Length="8" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Unit of misure used in issue documents.</Column>
+    <Column Name="ReportUoM" Type="String" Length="8" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Unit of misure used for the various interrogations.</Column>
+    <Column Name="OnInventoryLevel" Type="Bool" Length="1" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">If enabled the item is printed on inventory report.</Column>
+    <Column Name="OnInventorySheets" Type="Bool" Length="1" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">If enabled the item is printed on inventory sheets.</Column>
+    <Column Name="NoABC" Type="Bool" Length="1" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Not all of the items take part (for law) in the ABC analysis</Column>
+    <Column Name="MaxUnsoldMonths" Type="Integer" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">He shows the number of months beyond which the item appears in the lists unsold</Column>
+    <Column Name="MinimumStock" Type="Quantity" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Minimum stock. It is used by the Generate Purchase Orders from Reserved/Shortage procedure.</Column>
+    <Column Name="MaximumStock" Type="Quantity" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Maximum stock. It is used by the Generate Purchase Orders from Reserved/Shortage procedure.</Column>
+    <Column Name="ReorderingLotSize" Type="Quantity" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Reordering lot. It is used by the Generate Purchase Orders from Reserved/Shortage procedure.</Column>
+    <Column Name="LastReceiptDate" Type="Date" Length="0" ReadOnly="" Mandatory="" Default="X" Enum="" Reference="" localizable="true">Last receipt data. It can be updated automatically by the program when saving inventory entries (manual or automatic) if foreseen in the inventory reason.</Column>
+    <Column Name="LastIssueDate" Type="Date" Length="0" ReadOnly="" Mandatory="" Default="X" Enum="" Reference="" localizable="true">Last issue data. It can be updated automatically by the program when saving inventory entries (manual or automatic) if foreseen in the inventory reason.</Column>
+    <Column Name="LastSupplier" Type="String" Length="12" ReadOnly="" Mandatory="" Default="X" Enum="" Reference="" localizable="true">Last supplier. It can be updated automatically by the program when saving inventory entries (manual or automatic) if foreseen in the inventory reason.</Column>
+    <Column Name="UseLots" Type="Bool" Length="1" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">If enabled, the item is managed at lots.</Column>
+    <Column Name="LotPreexpiringDays" Type="Integer" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">This field contians the lot pre expiry days. It is used in order to calculate the pre expiry date on the basis of the validities dates.</Column>
+    <Column Name="LotValidityDays" Type="Integer" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">This field contains the validity days. It is used by the program in order to automatically propose the validity end date during the creation of a lot.</Column>
+    <Column Name="PacksReceiptUoM" Type="String" Length="8" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Unit of misure for pack to be receipted.</Column>
+    <Column Name="MinimumSaleQty" Type="Quantity" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">It indicates the minimum sale quantity.</Column>
+    <Column Name="TraceabilityCritical" Type="Bool" Length="1" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">It identifies an item that is critical for the lot traceability.</Column>
+    <Column Name="WEEECtg" Type="String" Length="8" ReadOnly="" Mandatory="" Default="" Enum="" Reference="WEEE/MA_WEEECtg" localizable="true">WEEE category of the item.</Column>
+    <Column Name="WEEEAmount" Type="Money" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Amount of the WEEE tax.</Column>
+    <Column Name="WEEECtg2" Type="String" Length="8" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">WEEE Category 2 of the item.</Column>
+    <Column Name="WEEEAmount2" Type="Money" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">WEEE Amount 2.</Column>
+    <Column Name="PostToInspection" Type="Bool" Length="1" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">It indicates that the item is subject to inspection.</Column>
+    <Column Name="SpecificationsForSupplier" Type="String" Length="256" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Descriptive field providing notes for the supplier.</Column>
+    <Column Name="InsertAnalParam" Type="Bool" Length="1" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">It indicates if it is necessary to track the analysis results.</Column>
+    <Column Name="ManageSample" Type="bool" Length="1" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">It indicates if the sample control for the item is being managed.</Column>
+    <Column Name="PercSample" Type="Percent" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">It indicates the sample percentage to be checked.</Column>
+    <Column Name="SampleQty" Type="Quantity" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">It indicates the sample quantity to be checked.</Column>
+    <Column Name="UseSupplierLotAsNewLotNumber" Type="int" Length="" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">With this parameter the user can decide how to use supplier lot as number for new lots.</Column>
+  </Fields>
+  <Keys>
+    <Key Name="PK_ItemsGoodsData" Type="Primary">
+      <Column Name="Item" localizable="true" />
+    </Key>
+  </Keys>
+  <Remarks localizable="true">Nothing to remark.</Remarks>
+</Table>
