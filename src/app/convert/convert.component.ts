@@ -84,18 +84,20 @@ export class ConvertComponent implements OnInit {
           output.DataTables.push(record);
         }
         var strOut = Xml.unparse(output, {declaration: { standalone: 'yes', encoding: 'UTF-8' }, indent: true});
+        //@@@TODO error handling
         console.log(strOut);
 
         try {
           Fs.writeFileSync(Path.join(this.projectService.theProject.targetFolder, job.targetEntityName + '.xml'), strOut);
         }
         catch (/** @type {?} */ e) {
-          console.log(e); //@@TODO error handling
+          console.log(e);
           this.messagesService.error("Failed to write file for entity " + job.targetEntityName + ": " + (e.message ? e.message : ""));
           return;
         }
       }
     }
+    this.messagesService.success("Conversion complete.");
   }
 
   onBack() {

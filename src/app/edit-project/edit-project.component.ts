@@ -29,6 +29,7 @@ export class EditProjectComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.messagesServices.clear();
   }
 
   onClose() {

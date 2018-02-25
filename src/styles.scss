@@ -1,6 +1,7 @@
 // $theme-colors: (
 //   "dark": #4A148C,
-//   "light":#F3E5F5
+//   "light":#F3E5F5,
+//   "medium":rgb(122, 55, 133)
 // );
 
 
@@ -24,6 +25,11 @@ $theme-colors: (
     background: theme-color-level(dark, 6);
 }
 
+.zap-bg-medium {
+    // background: theme-color(medium);
+    background: theme-color-level(medium, -4);
+}
+
 .zap-bg-light {
     background: theme-color(light);
 }
@@ -42,8 +48,8 @@ $theme-colors: (
 }
 
 .table .thead-light th {
-    background: theme-color(light);
-    border-color: theme-color-level(light, 1);
+    background: theme-color-level(light, -8);
+    border-color: theme-color-level(light, -4);
 }
 
 
