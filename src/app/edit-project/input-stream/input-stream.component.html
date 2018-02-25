@@ -3,9 +3,12 @@
     <form class="col-12">
       <div class="form-group row">
         <label for="sourceStream" class="col-2 col-form-label">Source stream</label>
-        <select class="form-control col-5" name="inputStreamName" id="inputStreamName" [(ngModel)]="currJobService.job.stream.name">
-          <option *ngFor="let input of inputStreamService.inputs">{{input}}</option>
-        </select>
+        <div class="input-group col-5">
+          <input type="text" class="form-control" name="sourceStream" id="sourceStream" [(ngModel)]="currJobService.job.stream.name">
+          <div class="input-group-append">
+            <span class="input-group-text"><span class="oi oi-ellipses" role="button" (click)="onBrowseSource()"></span></span>
+          </div>
+        </div>
         <div class="form-check ml-1">
           <input class="form-check-input" type="checkbox" value="" name="hasHeaders" id="hasHeaders" [(ngModel)]="currJobService.job.stream.hasHeaders">
           <label class="form-check-label" for="hasHeaders">

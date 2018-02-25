@@ -21,5 +21,8 @@ export class Fs {
     static writeFileSync(filename: string, data: string, options?: any) {
         __node_fs.writeFileSync(filename, data, options);
     }
+    static existsSync(path: string): boolean {
+        return __node_fs.existsSync(path);
+    }
 }
   

@@ -1,51 +1,19 @@
-<div class="zap-fullpage">
-  <div class="row zap-bg-lightest pt-2" id="ProjectHeader">
-    <div class="col-3">
-    </div>
-    <div class="col-7">
-      <form>
-          <div class="form-group row">
-              <label for="sourceFolder" class="col-sm-3 col-form-label">source folder</label>
-              <div class="col-sm-9">
-                <div class="input-group">
-                  <input type="text" class="form-control" name="sourceFolder" id="sourceFolder" (ngModelChange)="onSourceFolderChanged($event)" [ngModelOptions]="{ updateOn: 'blur' }" [(ngModel)]="projectService.theProject.sourceFolder">
-                  <div class="input-group-append">
-                    <span class="input-group-text"><span class="oi oi-ellipses" role="button" (click)="onBrowseSource()"></span></span>
-                  </div>
-                </div>
-              </div>
-            </div>      
-            <div class="form-group row">
-          <label for="targetFolder" class="col-sm-3 col-form-label">output folder</label>
-          <div class="col-sm-9">
-            <div class="input-group">
-              <input type="text" class="form-control" id="targetFolder"  name="targetFolder" [(ngModel)]="projectService.theProject.targetFolder">
-              <div class="input-group-append">
-                  <span class="input-group-text"><span class="oi oi-ellipses" role="button" (click)="onBrowseOutput()"></span></span>
-                </div>
-            </div>
-          </div>
-        </div>
-      </form> 
-    </div>
-    <div class="col-2">
-        <button class="btn btn-primary" (click)="onConvert()"><span class="oi oi-bolt"></span>&nbsp;Convert</button>
-    </div>
+<div class="row zap-fullpage">
+  <div class="col-4 col-md-3 zap-bg-lightest">
+    <zap-jobs-list></zap-jobs-list> 
   </div>
-  <div class="row zap-fullpage">
-    <div class="col-4 col-md-3 zap-bg-lightest">
-      <zap-jobs-list></zap-jobs-list> 
-    </div>
-    <div class="col-8 col-md-9 zap-overflow-auto" *ngIf="currJobService.job" style="height: calc(100% - 215px);">
-      <zap-job-detail></zap-job-detail>
-      <zap-input-stream></zap-input-stream>
-    </div>  
-  </div>
+  <div class="col-8 col-md-9 zap-overflow-auto" *ngIf="currJobService.job" style="height: calc(100% - 110px);">
+    <zap-job-detail></zap-job-detail>
+    <zap-input-stream></zap-input-stream>
+  </div>  
 </div>
 <nav class="navbar fixed-bottom navbar-light zap-bg-lighter">
   <div></div>
   <form class="form-inline">
       <button class="btn btn-success mr-2" (click)="onSave()"><span class="oi oi-check"></span>&nbsp;Save and Close</button>
       <button class="btn btn-secondary" (click)="onClose()"><span class="oi oi-x"></span>&nbsp;Discard</button>
+    </form>
+  <form class="form-inline">
+    <button class="btn btn-primary" (click)="onConvert()">Convert&nbsp;&nbsp;<span class="oi oi-caret-right"></span></button>
   </form>
 </nav>

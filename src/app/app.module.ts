@@ -14,6 +14,9 @@ import { EntitiesService } from './services/entities.service';
 import { InputStreamComponent } from './edit-project/input-stream/input-stream.component';
 import { EnumsService } from './services/enums.service';
 import { InputStreamService } from './services/input-stream.service';
+import { ConvertComponent } from './convert/convert.component';
+import { MessagesComponent } from './messages/messages.component';
+import { MessagesService } from './services/messages.service';
 
 const ROUTES = [
   {
@@ -28,6 +31,10 @@ const ROUTES = [
   {
     path: 'edit',
     component: EditProjectComponent
+  },
+  {
+    path: 'convert',
+    component: ConvertComponent
   }
 ];
 
@@ -38,7 +45,9 @@ const ROUTES = [
     EditProjectComponent,
     JobsListComponent,
     JobDetailComponent,
-    InputStreamComponent
+    InputStreamComponent,
+    ConvertComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +55,7 @@ const ROUTES = [
     NgxElectronModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [ProjectService, EntitiesService, InputStreamService, EnumsService],
+  providers: [ProjectService, EntitiesService, InputStreamService, EnumsService, MessagesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

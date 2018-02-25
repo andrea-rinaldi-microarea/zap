@@ -1,3 +1,4 @@
+import { MessagesService } from './../services/messages.service';
 import { ElectronService } from 'ngx-electron';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -19,7 +20,8 @@ export class HomeComponent implements OnInit {
   constructor(
     private router: Router, 
     private projectService: ProjectService,
-    private electronService: ElectronService
+    private electronService: ElectronService,
+    private messagesServices: MessagesService
   ) { }
 
   ngOnInit() {
@@ -31,6 +33,7 @@ export class HomeComponent implements OnInit {
   }
 
   onOpen() {
+    this.messagesServices.clear();
     if (this.electronService.isElectronApp) {
       var files = this.electronService.remote.dialog.showOpenDialog({
         title:'Open a Project', 
@@ -40,7 +43,10 @@ export class HomeComponent implements OnInit {
         ]
       });
       if (files) {
-        this.projectService.load(files[0]);
+        if (!this.projectService.load(files[0])) {
+          this.messagesServices.error("Failed to load the project: " + this.projectService.lastError);
+          return;
+        }
       } else {
         return;
       }

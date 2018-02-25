@@ -1,3 +1,4 @@
+import { MessagesService } from './../services/messages.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProjectService } from '../services/project.service';
@@ -23,7 +24,8 @@ export class EditProjectComponent implements OnInit {
     private projectService: ProjectService, 
     private currJobService: CurrentJobService,
     private electronService: ElectronService,
-    private inputStreamService: InputStreamService
+    private inputStreamService: InputStreamService,
+    private messagesServices: MessagesService
   ) { }
 
   ngOnInit() {
@@ -35,65 +37,37 @@ export class EditProjectComponent implements OnInit {
   }
 
   onSave() {
+    this.messagesServices.clear();
     if (this.electronService.isElectronApp) {
       if (!this.projectService.theProject.filePath) {
         var folders = this.electronService.remote.dialog.showOpenDialog({title:'Output Folder', properties: ["openDirectory"] });
         if (!folders) {
           return;
         }
-        this.projectService.theProject.filePath = Path.join(folders[0], this.projectService.theProject.name + '.zapproj');
+        var newProj = Path.join(folders[0], this.projectService.theProject.name + '.zapproj');
+        if (Fs.existsSync(newProj)) {
+          this.messagesServices.error('A project named "'+ newProj + '" already exists in the selected folder.');  
+          return;
+        }
+        this.projectService.theProject.filePath = newProj;
+      }
+    } else {
+      if (this.projectService.theProject.name == "new") {
+        this.messagesServices.error("A project with this name already exists.");
+        return;
       }
     }
-    this.projectService.save();
+
+    if (!this.projectService.save()) {
+      this.messagesServices.error("Failed to save the project: " + this.projectService.lastError);
+      return;
+    }
     this.router.navigateByUrl('/home');
   }
 
-  matchCondition(column: string, condition: string): boolean {
-    if (condition === "empty") {
-      return column === "";
-    } else if (condition === "not-empty") {
-      return column !== "";
-    } else {
-      return false;
-    }
-  }
-
+  
   onConvert() {
-    if (this.electronService.isElectronApp) {
-      for (let job of this.projectService.theProject.jobs) {
-        var output = {
-          DataTables : [
-          ]
-        }
-        var content: InputStreamData = { data: []};
-        this.inputStreamService.load(job.stream, content);
-        for (let row of content.data) {
-          if  (
-                job.stream.whereColumn && job.stream.whereColumn != -1 &&
-                !this.matchCondition(row[job.stream.whereColumn], job.stream.whereCondition)
-              ) {
-            continue;        
-          }
-          var record: any = {};
-          var attributes: any = {};
-          for (let mapping of job.mappings) {
-            let rule: Rule = (mapping.rule == "Copy") ? new Copy() :  new Fixed(mapping.fixedValue);
-            attributes[mapping.targetColumn.name] = rule.apply(mapping.sourceColumn >= 0 ? row[mapping.sourceColumn] : "", mapping.targetColumn);
-          }
-          record[job.targetEntityName] = { _attr: attributes };
-          output.DataTables.push(record);
-        }
-        var strOut = Xml.unparse(output, {declaration: { standalone: 'yes', encoding: 'UTF-8' }, indent: true});
-        console.log(strOut);
-
-        try {
-          Fs.writeFileSync(Path.join(this.projectService.theProject.targetFolder, job.targetEntityName + '.xml'), strOut);
-        }
-        catch (/** @type {?} */ e) {
-          console.log(e); //@@TODO error handling
-        }
-      }
-    }
+    this.router.navigateByUrl('/convert');
   }
 
   onBrowseSource() {
@@ -106,15 +80,6 @@ export class EditProjectComponent implements OnInit {
     }
     
     this.inputStreamService.loadInputList(this.projectService.theProject.sourceFolder);
-  }
-
-  onBrowseOutput() {
-    if (this.electronService.isElectronApp) {
-      var folders = this.electronService.remote.dialog.showOpenDialog({title:'Output Folder', properties: ["openDirectory"] });
-      if (folders) {
-        this.projectService.theProject.targetFolder = folders[0];
-      }
-    }
   }
 
   onSourceFolderChanged($event: any) {

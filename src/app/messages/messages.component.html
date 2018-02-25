@@ -1,0 +1,7 @@
+<div *ngIf="messagesService.show" class="alert alert-danger alert-dismissible fade show" role="alert">
+  <strong>Error!</strong> {{messagesService.message}} 
+  <span *ngIf="messagesService.details"><br>Click <a href="#">here</a> for more.</span> 
+  <button type="button" class="close" (click)="messagesService.show=false" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
