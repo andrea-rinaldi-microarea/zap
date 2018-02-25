@@ -3,6 +3,7 @@ import { Job } from '../model/job.model';
 import { InputStreamData } from '../model/input-stream.model';
 import { ProjectService } from '../services/project.service';
 import { InputStreamService } from '../services/input-stream.service';
+import { MessagesService } from '../services/messages.service';
 
 @Injectable()
 export class CurrentJobService {
@@ -12,7 +13,8 @@ export class CurrentJobService {
 
   constructor(
     private projectService: ProjectService,
-    public inputStreamService: InputStreamService
+    public inputStreamService: InputStreamService,
+    public messagesService: MessagesService
   ) { }
 
   refreshSample() {
@@ -26,11 +28,15 @@ export class CurrentJobService {
   }
 
   loadSample() {
-    this.inputStreamService.load(
+    this.messagesService.clear();
+    if (!this.inputStreamService.load(
       this.job.stream,
       this.sample,
       15
-    );
-    this.projectService.samples.set(this.job, this.sample);
+    )) {
+      this.messagesService.error("Failed loading sample: " + this.inputStreamService.lastError);
+    } else {
+      this.projectService.samples.set(this.job, this.sample);
+    }
   }
 }

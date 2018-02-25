@@ -9,53 +9,29 @@ import { CsvParse } from '../utils/csv-parse';
 export class InputStreamService {
 
   public inputs: string[] = [];
-  private sourceFolder: string;
+  lastError: string = "";
 
   public whereConditions = WhereConditions;
 
   constructor(private electronService: ElectronService) { }
 
-  loadInputList(folder: string) {
-    this.inputs = [];
-    this.sourceFolder = folder;
-    if (this.electronService.isElectronApp) {
-      if (!this.sourceFolder)
-        return;
-      try {
-        var files = Fs.readdirSync(folder);
-      }
-      catch (/** @type {?} */ e) {
-        console.log(e); //@@TODO error handling
-        return;
-      }
-
-      for (let file of files) {
-        this.inputs.push(file);
-      }
-    } else {
-      this.inputs =[
-        "Artikel.csv",
-        "Abverkauf.csv",
-        "Lieferanten.csv"
-      ];
-    }
-  }
-
-  load(stream: InputStream, input: InputStreamData, maxLines?: number) {
+  load(stream: InputStream, input: InputStreamData, maxLines?: number): boolean {
     input.data = [];
 
     if (this.electronService.isElectronApp) {
       try {
-        var fileContent = Fs.readFileSync(Path.join(this.sourceFolder, stream.name), 'latin1'); 
+        var fileContent = Fs.readFileSync(stream.name, 'latin1'); 
       }
       catch (/** @type {?} */ e) {
-        console.log(e); //@@TODO error handling
-        return;
+        console.log(e); 
+        this.lastError = e.message? e.message : e;
+        return false;
       }
       let options = { delimiter: ';' };
       if (maxLines)
         options["to"] = maxLines;
         input.data = CsvParse.parseSync(fileContent, {delimiter: ';', to: maxLines});
+        //@@TODO error handling
     } else {
       for (let idx = 0; idx <= sampleChunk.length; idx++) {
         if (idx >= maxLines)
@@ -75,6 +51,8 @@ export class InputStreamService {
         stream.columns.push(new Column("[Column " + idx + "]", Type.String));
       }
     }
+
+    return true;
   }
 
 }

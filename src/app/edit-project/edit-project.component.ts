@@ -29,7 +29,6 @@ export class EditProjectComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.inputStreamService.loadInputList(this.projectService.theProject.sourceFolder);
   }
 
   onClose() {
@@ -39,7 +38,7 @@ export class EditProjectComponent implements OnInit {
   onSave() {
     this.messagesServices.clear();
     if (this.electronService.isElectronApp) {
-      if (!this.projectService.theProject.filePath) {
+      if (!this.projectService.projectFilePath) {
         var folders = this.electronService.remote.dialog.showOpenDialog({title:'Output Folder', properties: ["openDirectory"] });
         if (!folders) {
           return;
@@ -49,7 +48,7 @@ export class EditProjectComponent implements OnInit {
           this.messagesServices.error('A project named "'+ newProj + '" already exists in the selected folder.');  
           return;
         }
-        this.projectService.theProject.filePath = newProj;
+        this.projectService.projectFilePath = newProj;
       }
     } else {
       if (this.projectService.theProject.name == "new") {
@@ -62,28 +61,14 @@ export class EditProjectComponent implements OnInit {
       this.messagesServices.error("Failed to save the project: " + this.projectService.lastError);
       return;
     }
-    this.router.navigateByUrl('/home');
   }
 
-  
   onConvert() {
-    this.router.navigateByUrl('/convert');
-  }
-
-  onBrowseSource() {
-    if (this.electronService.isElectronApp) {
-      var folders = this.electronService.remote.dialog.showOpenDialog({title:'Source Folder', properties: ["openDirectory"] });
-      if (!folders) 
-        return;
-      this.projectService.theProject.sourceFolder = folders[0];
-      //@TODO ask and clean up all input from jobs
+    this.messagesServices.clear();
+    if (!this.projectService.checkComplete()) {
+      this.messagesServices.error("The project is missing some settings: " + this.projectService.lastError);
+      return;
     }
-    
-    this.inputStreamService.loadInputList(this.projectService.theProject.sourceFolder);
-  }
-
-  onSourceFolderChanged($event: any) {
-    this.inputStreamService.loadInputList($event);
-    //@TODO ask and clean up all input from jobs
+    this.router.navigateByUrl('/convert');
   }
 }

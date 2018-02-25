@@ -8,6 +8,7 @@ import { InputStreamData } from '../model/input-stream.model';
 import { Rule, Copy, Fixed } from '../model/rule.model';
 import { Xml } from '../utils/xml';
 import { Fs, Path } from '../utils/node';
+import { MessagesService } from '../services/messages.service';
 
 @Component({
   selector: 'zap-convert',
@@ -20,7 +21,8 @@ export class ConvertComponent implements OnInit {
     private router: Router, 
     private projectService: ProjectService, 
     private electronService: ElectronService,
-    private inputStreamService: InputStreamService
+    private inputStreamService: InputStreamService,
+    private messagesService: MessagesService
   ) { }
 
   ngOnInit() {
@@ -46,6 +48,11 @@ export class ConvertComponent implements OnInit {
   }
 
   onConvert() {
+    this.messagesService.clear();
+    if (!this.projectService.theProject.targetFolder) {
+      this.messagesService.error("Target folder is empty");
+      return;
+    }
     if (this.electronService.isElectronApp) {
       for (let job of this.projectService.theProject.jobs) {
         var output = {
@@ -53,7 +60,13 @@ export class ConvertComponent implements OnInit {
           ]
         }
         var content: InputStreamData = { data: []};
-        this.inputStreamService.load(job.stream, content);
+        if (!this.inputStreamService.load(job.stream, content)) {
+          this.messagesService.error(
+            "Failed loading input stream " + job.stream.name + 
+            ": " + this.inputStreamService.lastError
+          );
+          return;
+        }
         for (let row of content.data) {
           if  (
                 job.stream.whereColumn && job.stream.whereColumn != -1 &&
@@ -78,6 +91,8 @@ export class ConvertComponent implements OnInit {
         }
         catch (/** @type {?} */ e) {
           console.log(e); //@@TODO error handling
+          this.messagesService.error("Failed to write file for entity " + job.targetEntityName + ": " + (e.message ? e.message : ""));
+          return;
         }
       }
     }

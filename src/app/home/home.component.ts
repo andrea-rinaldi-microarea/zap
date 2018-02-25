@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
   }
 
   onCreate() {
-    this.projectService.theProject = new Project(this.projectName);
+    this.projectService.create(this.projectName);
     this.router.navigateByUrl('/edit');
   }
 

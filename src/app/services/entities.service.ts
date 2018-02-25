@@ -4,23 +4,29 @@ import { Type, Column, String2Type } from '../model/column.model';
 import { ElectronService } from 'ngx-electron';
 import { Fs, Path } from '../utils/node';
 import { Xml2jsParser } from '../utils/xml2js';
+import { MessagesService } from './messages.service';
 
 const ENTITIES_REPO = './dist/assets/entities';
 @Injectable()
 export class EntitiesService {
 
   public entities: Entity[] = [];
+  public lastError: string = "";
   
   private catalog: Map<string, Entity> = new Map<string, Entity>();
 
-  constructor(private electronService: ElectronService) { 
+  constructor(
+    private electronService: ElectronService,
+    private messagesServices: MessagesService
+  ) { 
 
     if (this.electronService.isElectronApp) {
       try {
         var files = Fs.readdirSync(ENTITIES_REPO);
       }
       catch (/** @type {?} */ e) {
-        console.log(e); //@@TODO error handling
+        console.log(e);
+        this.messagesServices.error("Failed loading entities: " + e.message? e.message: "");
         return;
       }
 
@@ -41,13 +47,15 @@ export class EntitiesService {
     }
   }
 
-  loadColumns(entityName: string) {
+  loadColumns(entityName: string): boolean {
     var entity: Entity = this.get(entityName);
-    if (!entity) 
-      return; //@@TODO error handling
+    if (!entity) {
+      this.lastError = "No entity found with name: " + entityName;
+      return false;      
+    }
 
     if (entity.columns.length > 0)
-      return; // already loaded
+      return true; // already loaded
     
     if (this.electronService.isElectronApp) {
       var p = Path.join(ENTITIES_REPO, entityName + '.xml');
@@ -55,11 +63,17 @@ export class EntitiesService {
         var fileContent = Fs.readFileSync(Path.join(ENTITIES_REPO, entityName + '.xml'), 'utf8'); 
       }
       catch (/** @type {?} */ e) {
-        console.log(e); //@@TODO error handling
-        return;
+        console.log(e);
+        this.lastError = e.message? e.message : e;
+        return false;
       }
       var parser = new Xml2jsParser();
       parser.parseString(fileContent, (err, result) => {
+        if (err) {
+          console.log(err);
+          this.messagesServices.error("Failed loading entities: " + err.message? err.message: "");
+          return;
+        }
         console.log(result);
         for (let col of result.Table.Fields[0].Column) {
           var column = new Column(
@@ -69,7 +83,6 @@ export class EntitiesService {
           );
           entity.columns.push(column);
         }
-        //
       });
 
     } else {
@@ -94,6 +107,8 @@ export class EntitiesService {
         ];
       }
     }
+
+    return true;
   }
 
   public get(key: string): Entity {

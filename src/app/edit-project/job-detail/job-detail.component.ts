@@ -7,6 +7,7 @@ import { Mapping } from '../../model/mapping.model';
 import { Column, fromColumn, columnTypeDescription } from '../../model/column.model';
 import { AllRules } from '../../model/rule.model';
 import { EnumsService } from './../../services/enums.service';
+import { MessagesService } from '../../services/messages.service';
 
 @Component({
   selector: 'zap-job-detail',
@@ -29,7 +30,8 @@ export class JobDetailComponent implements OnInit {
   constructor(
     private currJobService: CurrentJobService, 
     private entitiesService: EntitiesService,
-    private enumsService: EnumsService
+    private enumsService: EnumsService,
+    private messagesService: MessagesService
   ) { 
     this.allRules = AllRules;
   }
@@ -50,8 +52,11 @@ export class JobDetailComponent implements OnInit {
   }
 
   onPrepareEntity() {
+    this.messagesService.clear();
     this.entity = this.entitiesService.get(this.currJobService.job.targetEntityName);
-    this.entitiesService.loadColumns(this.entity.name);
+    if (!this.entitiesService.loadColumns(this.entity.name)) {
+      this.messagesService.error("Failed loading entities: " + this.entitiesService.lastError);
+    }
   }
 
   clickedInRow($event: Event, mapping: Mapping){
