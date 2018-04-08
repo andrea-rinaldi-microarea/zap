@@ -1,5 +1,5 @@
 import { Column, Type } from './../model/column.model';
-import { InputStream, InputStreamData, WhereConditions } from './../model/input-stream.model';
+import { InputStream, InputStreamData, WhereConditions, Encodings } from './../model/input-stream.model';
 import { Injectable } from '@angular/core';
 import { ElectronService } from 'ngx-electron';
 import { Fs, Path } from '../utils/node';
@@ -12,6 +12,7 @@ export class InputStreamService {
   lastError: string = "";
 
   public whereConditions = WhereConditions;
+  public encodings = Encodings;
 
   constructor(private electronService: ElectronService) { }
 
@@ -20,7 +21,7 @@ export class InputStreamService {
 
     if (this.electronService.isElectronApp) {
       try {
-        var fileContent = Fs.readFileSync(stream.name, 'latin1'); 
+        var fileContent = Fs.readFileSync(stream.name, stream.encoding); 
       }
       catch (e) {
         console.log(e); 

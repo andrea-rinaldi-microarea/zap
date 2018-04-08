@@ -25,6 +25,7 @@
     "bootstrap": "^4.0.0",
     "core-js": "^2.4.1",
     "csv-parse": "^2.0.2",
+    "iconv-lite": "^0.4.21",
     "ngx-electron": "^1.0.4",
     "rxjs": "^5.5.6",
     "xml": "^1.0.1",
