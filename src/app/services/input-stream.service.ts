@@ -28,7 +28,7 @@ export class InputStreamService {
         this.lastError = e.message? e.message : e;
         return false;
       }
-      let options = { delimiter: ';' };
+      let options = { delimiter: stream.delimiter };
       if (maxLines)
         options["to"] = maxLines;
         try {

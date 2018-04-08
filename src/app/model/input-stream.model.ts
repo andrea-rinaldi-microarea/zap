@@ -25,6 +25,7 @@ export class InputStream {
     ) {}
     
     encoding: string = "latin1";
+    delimiter: string = ";";
 
     columns: Column[] = [];
 
