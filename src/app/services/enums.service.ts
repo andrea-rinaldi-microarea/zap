@@ -18,7 +18,7 @@ export class EnumsService {
       try {
         var files = Fs.readdirSync(ENUMS_REPO);
       }
-      catch (/** @type {?} */ e) {
+      catch (e) {
         console.log(e); //@@TODO error handling
         return;
       }
@@ -28,7 +28,7 @@ export class EnumsService {
           var fileContent = Fs.readFileSync(Path.join(ENUMS_REPO, file), 'utf8'); 
           this.loadEnum(Path.basename(file, '.xml'), fileContent);
         }
-        catch (/** @type {?} */ e) {
+        catch (e) {
           console.log(e); //@@TODO error handling
           return;
         }

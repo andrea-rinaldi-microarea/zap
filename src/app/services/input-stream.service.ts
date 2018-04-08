@@ -22,7 +22,7 @@ export class InputStreamService {
       try {
         var fileContent = Fs.readFileSync(stream.name, 'latin1'); 
       }
-      catch (/** @type {?} */ e) {
+      catch (e) {
         console.log(e); 
         this.lastError = e.message? e.message : e;
         return false;
@@ -30,8 +30,14 @@ export class InputStreamService {
       let options = { delimiter: ';' };
       if (maxLines)
         options["to"] = maxLines;
-        input.data = CsvParse.parseSync(fileContent, {delimiter: ';', to: maxLines});
-        //@@TODO error handling
+        try {
+          input.data = CsvParse.parseSync(fileContent, options);
+        }
+        catch (e) {
+          console.log(e); 
+          this.lastError = e.message? e.message : e;
+          return false;
+        }
     } else {
       for (let idx = 0; idx <= sampleChunk.length; idx++) {
         if (idx >= maxLines)

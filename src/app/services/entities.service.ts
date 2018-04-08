@@ -24,7 +24,7 @@ export class EntitiesService {
       try {
         var files = Fs.readdirSync(ENTITIES_REPO);
       }
-      catch (/** @type {?} */ e) {
+      catch (e) {
         console.log(e);
         this.messagesServices.error("Failed loading entities: " + e.message? e.message: "");
         return;
@@ -62,7 +62,7 @@ export class EntitiesService {
       try {
         var fileContent = Fs.readFileSync(Path.join(ENTITIES_REPO, entityName + '.xml'), 'utf8'); 
       }
-      catch (/** @type {?} */ e) {
+      catch (e) {
         console.log(e);
         this.lastError = e.message? e.message : e;
         return false;

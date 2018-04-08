@@ -90,7 +90,7 @@ export class ConvertComponent implements OnInit {
         try {
           Fs.writeFileSync(Path.join(this.projectService.theProject.targetFolder, job.targetEntityName + '.xml'), strOut);
         }
-        catch (/** @type {?} */ e) {
+        catch (e) {
           console.log(e);
           this.messagesService.error("Failed to write file for entity " + job.targetEntityName + ": " + (e.message ? e.message : ""));
           return;

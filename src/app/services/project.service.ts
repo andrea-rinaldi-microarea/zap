@@ -43,7 +43,7 @@ export class ProjectService {
       try {
         var fileContent = Fs.readFileSync(this.projectFilePath , 'utf8'); 
       }
-      catch (/** @type {?} */ e) {
+      catch (e) {
         console.log(e);
         this.lastError = e.message? e.message : e;
         return false;
@@ -51,7 +51,7 @@ export class ProjectService {
       try {
         this.theProject = JSON.parse(fileContent);
       }
-      catch (/** @type {?} */ e) {
+      catch (e) {
         console.log(e);
         this.lastError = e.message? e.message : e;
         return false;
@@ -68,7 +68,7 @@ export class ProjectService {
       try {
         Fs.writeFileSync(this.projectFilePath, strProj);
       }
-      catch (/** @type {?} */ e) {
+      catch (e) {
         console.log(e); 
         this.lastError = e.message? e.message : e;
         return false;
