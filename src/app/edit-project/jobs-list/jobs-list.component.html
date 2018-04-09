@@ -3,8 +3,12 @@
   <div class="col-12 pt-2">
     <div class="card mb-3 zap-bg-light" [ngClass]="currJobService.job == job ? 'border-primary' : ''" *ngFor="let job of projectService.theProject.jobs; let index = index" (click)="onSelectJob(job)">
       <div class="card-body" >
+        <div class="card-text text-right"><small class="text-muted">
+          <span class="oi oi-arrow-top icon-button" role="button" aria-hidden="true" (click)="onMoveJobUp(index)"></span>
+          <span class="oi oi-arrow-bottom icon-button" role="button" aria-hidden="true" (click)="onMoveJobDown(index)"></span>
+        </small></div>
         {{job.targetEntityName || '[no entity set]'}}
-        <p class="card-text text-right"><small class="text-muted"><span class="oi oi-trash icon-button" role="button" aria-hidden="true" (click)="onDeleteJob(index)"></span></small></p>
+        <div class="card-text text-right"><small class="text-muted"><span class="oi oi-trash icon-button" role="button" aria-hidden="true" (click)="onDeleteJob(index)"></span></small></div>
       </div>
     </div>
     <div class="card mb-3 zap-bg-light">
