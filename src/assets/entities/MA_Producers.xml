@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Table Name="MA_Producers" Module="Items" Document="Document.ERP.Items.Documents.Producers" Namespace="Table.ERP.Items.Dbl.MA_Producers" RuntimeClass="TProducers" localize="Manufacturers" Reference="">
+  <Overview localizable="true">This table contains data concerning the item manufacturers.</Overview>
+  <Fields>
+    <Column Name="Producer" Type="String" Length="16" ReadOnly="" Mandatory="X" Default="" Enum="" Reference="" localizable="true">The univocal code which identifies the manufacturer.</Column>
+    <Column Name="CompanyName" Type="String" Length="64" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Manufacturer company name.</Column>
+    <Column Name="Address" Type="String" Length="64" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Manufacturer address.</Column>
+    <Column Name="ZIPCode" Type="String" Length="10" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Manufacturer ZIP code.</Column>
+    <Column Name="City" Type="String" Length="64" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Manufacturer city.</Column>
+    <Column Name="County" Type="String" Length="3" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Manufacturer county.</Column>
+    <Column Name="Country" Type="String" Length="64" ReadOnly="" Mandatory="" Default="" Enum="False" Reference="" localizable="true">Manufacturer country.</Column>
+    <Column Name="Telephone1" Type="String" Length="20" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Manufacturer telephone1.</Column>
+    <Column Name="Telephone2" Type="String" Length="20" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Manufacturer telephone2.</Column>
+    <Column Name="Fax" Type="String" Length="16" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Manufacturer fax.</Column>
+    <Column Name="Internet" Type="String" Length="64" ReadOnly="" Mandatory="" Default="" Enum="False" Reference="" localizable="true">Manufacturer internet address.</Column>
+    <Column Name="EMail" Type="String" Length="64" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Manufacturer Email.</Column>
+    <Column Name="ContactPerson" Type="String" Length="16" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Contact person.</Column>
+    <Column Name="WorkingTime" Type="String" Length="24" ReadOnly="" Mandatory="" Default="" Enum="False" Reference="" localizable="true">Working time.</Column>
+    <Column Name="Notes" Type="String" Length="64" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Descriptive text.</Column>
+    <Column Name="Disabled" Type="Bool" Length="1" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">It indicates if the manufacturer is disabled.</Column>
+    <Column Name="ISOCountryCode" Type="String" Length="2" ReadOnly="" Mandatory="" Default="" Enum="" Reference="Table.ERP.Company.Dbl.MA_ISOCountryCodes" localizable="true">Manufacturer ISO country code.</Column>
+    <Column Name="Address2" Type="String" Length="64" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Manufacturer additional address.</Column>
+    <Column Name="StreetNo" Type="String" Length="10" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Manufacturer street number.</Column>
+    <Column Name="District" Type="String" Length="64" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Manufacturer district.</Column>
+    <Column Name="FederalState" Type="String" Length="2" ReadOnly="" Mandatory="" Default="" Enum="" Reference="Table.ERP.Company.Dbl.MA_FederalStates" localizable="true">Manufacturer federal state.</Column>
+    <Column Name="TBGuid" Type="uuid" Length="" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Field for internal use.</Column>
+  </Fields>
+  <Keys>
+    <Key Name="PK_Producers" Type="Primary">
+      <Column Name="Producer" localizable="true" />
+    </Key>
+    <Key Name="MA_Producers2" Type="Index">
+      <Column Name="CompanyName" localizable="true" />
+    </Key>
+  </Keys>
+  <Remarks localizable="true">Nothing to remark.</Remarks>
+</Table>

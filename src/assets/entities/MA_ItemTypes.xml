@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Table Name="MA_ItemTypes" Module="Items" Document="Document.ERP.Items.Documents.ItemType" Namespace="Table.ERP.Items.Dbl.MA_ItemTypes" RuntimeClass="TItemType" localize="Item Types " Reference="">
+  <Overview localizable="true">This table can be seen as further group level while for a service it is substitutive of the present data in the commodity category.</Overview>
+  <Fields>
+    <Column Name="CodeType" Type="String" Length="8" ReadOnly="" Mandatory="X" Default="" Enum="" Reference="" localizable="true">The univocal code which identifies the item type.</Column>
+    <Column Name="Description" Type="String" Length="32" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Description of the item type.</Column>
+    <Column Name="Discount1" Type="Percent" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Discount 1 percentage (cascade discount).</Column>
+    <Column Name="Discount2" Type="Percent" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Discount 2 percentage (cascade discount).</Column>
+    <Column Name="DiscountFormula" Type="String" Length="16" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Discount formula.</Column>
+    <Column Name="Notes" Type="String" Length="64" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Descriptive text.</Column>
+    <Column Name="TBGuid" Type="uuid" Length="" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Field for internal use.</Column>
+    <Column Name="HasCustomers" Type="Bool" Length="1" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">If enabled, the item type customers management is activated.</Column>
+    <Column Name="HasSuppliers" Type="Bool" Length="1" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">If enabled, the item type suppliers management is activated.</Column>
+  </Fields>
+  <Keys>
+    <Key Name="PK_ItemTypes" Type="Primary">
+      <Column Name="CodeType" localizable="true" />
+    </Key>
+    <Key Name="MA_ItemTypes2" Type="Index">
+      <Column Name="Description" localizable="true" />
+    </Key>
+  </Keys>
+  <Remarks localizable="true">Nothing to remark.</Remarks>
+</Table>
