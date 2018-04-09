@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Table Name="MA_Storages" Module="MultiStorage" Document="Document.ERP.MultiStorage.Documents.Storages" Namespace="Table.ERP.MultiStorage.Dbl.MA_Storages" RuntimeClass="TStorages" localize="Storages" Reference="">
+  <Overview localizable="true">This table contains the inventory storages data.</Overview>
+  <Fields>
+    <Column Name="Storage" Type="String" Length="8" ReadOnly="X" Mandatory="X" Default="X" Enum="" Reference="" localizable="true">The univocal code that identifies the storage.</Column>
+    <Column Name="Description" Type="String" Length="32" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Storage description.</Column>
+    <Column Name="GroupCode" Type="String" Length="8" ReadOnly="" Mandatory="" Default="" Enum="" Reference="MultiStorage/MA_StorageGroups" localizable="true">The possible storage grouping which the current storage referts to.</Column>
+    <Column Name="CodeType" Type="Enum" Length="0" ReadOnly="X" Mandatory="X" Default="X" Enum="MultiStorage/51" Reference="" localizable="true">Storage type.</Column>
+    <Column Name="OwnedGoods" Type="Bool" Length="1" ReadOnly="" Mandatory="" Default="X" Enum="" Reference="" localizable="true">This field serves to show if the goods contained in the present storage are property of the company.</Column>
+    <Column Name="Address" Type="String" Length="64" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Storage address.</Column>
+    <Column Name="ZIPCode" Type="String" Length="10" ReadOnly="" Mandatory="" Default="" Enum="False" Reference="" localizable="true">Storage ZIP code.</Column>
+    <Column Name="City" Type="String" Length="64" ReadOnly="" Mandatory="" Default="" Enum="False" Reference="" localizable="true">Storage city.</Column>
+    <Column Name="County" Type="String" Length="3" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Storage county.</Column>
+    <Column Name="Country" Type="String" Length="64" ReadOnly="" Mandatory="" Default="" Enum="False" Reference="" localizable="true">Storage country.</Column>
+    <Column Name="Telephone1" Type="String" Length="20" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Storage telephone 1.</Column>
+    <Column Name="Telephone2" Type="String" Length="20" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Storage telephone 2.</Column>
+    <Column Name="Fax" Type="String" Length="16" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Storage fax.</Column>
+    <Column Name="Notes" Type="String" Length="64" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Descriptive text.</Column>
+    <Column Name="Disabled" Type="Bool" Length="1" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">It indicates if the storage is disabled.</Column>
+    <Column Name="Priority" Type="Integer" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">It indicates the priority associated to the storage to establish the order of search of the availability of the materials during the generation of the Material Picking.</Column>
+    <Column Name="UsedByProduction" Type="Bool" Length="1" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">It indicates that the storage will be considered during the search of availability for the picking for production.</Column>
+    <Column Name="UsedByMRP" Type="Bool" Length="1" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">If enabled, the storage is considered by the MRP algorithm when it calculates the book inventory for a particular item.</Column>
+    <Column Name="TBGuid" Type="uuid" Length="" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Field for internal use.</Column>
+    <Column Name="UseLocation" Type="Bool" Length="1" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">If the link storage-location is enabled, it indicates that the storage uses location.</Column>
+    <Column Name="TaxJournalSales" Type="String" Length="8" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Storage tax journal sales. If it is present, it is proposed in sale documents.</Column>
+    <Column Name="TaxJournalPurchases" Type="String" Length="8" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Storage tax journal purchases. If it is present, it is proposed in purchase documents.</Column>
+    <Column Name="StubBookSales" Type="String" Length="8" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Storage stub book sales. If it is present, it is proposed in sale documents.</Column>
+    <Column Name="StubBookPurchases" Type="String" Length="8" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Storage stub book purchases. If it is present, it is proposed in purchase documents.</Column>
+    <Column Name="StubBookInterStorageIN" Type="String" Length="8" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Stub book of interstorage movement document IN. If it is present, it is proposed in interstorage movement document IN.</Column>
+    <Column Name="StubBookInterStorageOUT" Type="String" Length="8" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Stub book of interstorage movement document OUT. If it is present, it is proposed in interstorage movement document OUT.</Column>
+    <Column Name="StubBookAdjustment" Type="String" Length="8" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Storage stub book adjustment. If it is present, it is proposed in adjustment documents.</Column>
+    <Column Name="UsedForRetail" Type="Bool" Length="1" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">It indicates if the storage is used for retail activities. Field managed only by the country: RO.</Column>
+    <Column Name="InventoryShortageCheckType" Type="Enum" Length="" ReadOnly="" Mandatory="" Default="" Enum="Sales/383" Reference="" localizable="true">It allows deciding if receive a warning, a block or nothing in case the availability of item recalled in the inventory entries issued for this storage is not sufficient.</Column>
+    <Column Name="SalesShortageCheckType" Type="Enum" Length="" ReadOnly="" Mandatory="" Default="" Enum="Sales/383" Reference="" localizable="true">It allows deciding if receive a warning, a block or nothing in case the availability of item recalled in the sale document issued for this storage is not sufficient.</Column>
+    <Column Name="SalesOrdersShortageCheckType" Type="Enum" Length="" ReadOnly="" Mandatory="" Default="" Enum="Sales/383" Reference="" localizable="true">It allows deciding if receive a warning, a block or nothing in case the availability of item recalled in the sales orders issued for this storage is not sufficient.</Column>
+    <Column Name="InventoryScarcityCheckType" Type="Enum" Length="" ReadOnly="" Mandatory="" Default="" Enum="Sales/383" Reference="" localizable="true">It allows deciding if receive a warning, a block or nothing in case of item scarcity in inventory entries issued for this storage.</Column>
+    <Column Name="SalesScarcityCheckType" Type="Enum" Length="" ReadOnly="" Mandatory="" Default="" Enum="Sales/383" Reference="" localizable="true">It allows deciding if receive a warning, a block or nothing in case of item scarcity in sales documents issued for this storage.</Column>
+    <Column Name="WMS" Type="Bool" Length="1" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">It indicates if in the current storage the WMS is enabled.</Column>
+    <Column Name="GoodsReceiptZone" Type="String" Length="8" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Goods Receipt Zone used in WMS. It is enabled if the field MA_Storages.TwoStepsPutaway is true.</Column>
+    <Column Name="GoodsIssueZone" Type="String" Length="8" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Goods Issue Zone used in WMS.</Column>
+    <Column Name="TwoStepsPutaway" Type="Bool" Length="1" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">It indicates if in the current storage the two step putaway is activated. It is used in WMS.</Column>
+    <Column Name="ReturnZone" Type="String" Length="8" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Return Zone used in WMS.</Column>
+    <Column Name="ScrapZone" Type="String" Length="8" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Scrap Zone used in WMS.</Column>
+    <Column Name="InspectionZone" Type="String" Length="8" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Inspection Zone used in WMS.</Column>
+    <Column Name="SearchZoneStrategyPutaway" Type="String" Length="8" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Search Zone Strategy Putaway used in WMS.</Column>
+    <Column Name="SearchZoneStrategyPicking" Type="String" Length="8" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Search Zone Strategy Picking used in WMS.</Column>
+    <Column Name="StockReturnStrategy" Type="int" Length="" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Stock Return Strategy used in WMS.</Column>
+    <Column Name="ManTwoStepsPutaway" Type="Bool" Length="1" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">It indicates that the Manufacturing Two Steps Putaway is enabled. It is actived if the link between WMS and Manufacturing is enabled.</Column>
+    <Column Name="ManufacturingReceiptZone" Type="bool" Length="1" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Manufacturing Receipt Zone for WMS. It is actived if the link between WMS and Manufacturing is enabled.</Column>
+    <Column Name="ManufacturingIssueZone" Type="bool" Length="1" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Manufacturing Issue Zone for WMS. It is actived if the link between WMS and Manufacturing is enabled.</Column>
+    <Column Name="WMSActivationDate" Type="datetime" Length="" ReadOnly="X" Mandatory="X" Default="X" Enum="" Reference="" localizable="true">WMS Activation Date.</Column>
+    <Column Name="WMSManActivationDate" Type="datetime" Length="" ReadOnly="X" Mandatory="X" Default="X" Enum="" Reference="" localizable="true">WMS Manufacturing Activation Date.</Column>
+    <Column Name="StorageBarcodePrefix" Type="String" Length="2" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Storage Barcode Prefix.</Column>
+    <Column Name="LastSnapshotCertifiedDate" Type="datetime" Length="" ReadOnly="X" Mandatory="" Default="X" Enum="" Reference="" localizable="true">Last Snapshot Certified Date.</Column>
+    <Column Name="CrossDocking" Type="Bool" Length="1" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">It indicates if in the current storage the cross docking management is activated.</Column>
+    <Column Name="CrossDockingZone" Type="String" Length="8" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Cross Docking Zone used in WMS. This field is enabled if the field MA_Storages.CrossDocking is true.</Column>
+    <Column Name="StorageReplenishment" Type="String" Length="8" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Storage Replenishment used in WMS.</Column>
+    <Column Name="SpecTypeReplenishment" Type="int" Length="" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Specificator Type Replenishment used in WMS.</Column>
+    <Column Name="SpecificatorReplenishment" Type="String" Length="12" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Specificator Replenishment used in WMS.</Column>
+    <Column Name="ConsignmentStock" Type="Bool" Length="1" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">It indicates if in the current storage the consignment stock is activated. It used in WMS.</Column>
+    <Column Name="ISOCountryCode" Type="String" Length="2" ReadOnly="" Mandatory="" Default="X" Enum="" Reference="Table.ERP.Company.Dbl.MA_ISOCountryCodes" localizable="true">ISO country code. It is automatically set by the program according to the Company master date (field MA_Company.ISOCountryCode) but it can be modified by the user.</Column>
+    <Column Name="Address2" Type="String" Length="64" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Additional storage address.</Column>
+    <Column Name="StreetNo" Type="String" Length="10" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Street number. Field managed only by the country BR.</Column>
+    <Column Name="District" Type="String" Length="64" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">District. Field managed only by the country BR.</Column>
+    <Column Name="FederalState" Type="String" Length="2" ReadOnly="" Mandatory="" Default="" Enum="" Reference="Table.ERP.Company.Dbl.MA_FederalStates" localizable="true">Federal state code. Field managed only by the country BR.</Column>
+  </Fields>
+  <Keys>
+    <Key Name="PK_Storages" Type="Primary">
+      <Column Name="Storage" localizable="true" />
+    </Key>
+    <Key Name="MA_Storages2" Type="Index">
+      <Column Name="Description" localizable="true" />
+    </Key>
+  </Keys>
+  <Remarks localizable="true">Nothing to remark.</Remarks>
+</Table>

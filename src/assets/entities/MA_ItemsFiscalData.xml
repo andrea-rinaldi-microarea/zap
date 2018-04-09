@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Table Name="MA_ItemsFiscalData" Module="Inventory" Document="Document.ERP.Items.Documents.Items" Namespace="Table.ERP.Inventory.Dbl.MA_ItemsFiscalData" RuntimeClass="TItemsFiscalData" localize="Items Fiscal Data" Reference="">
+  <Overview localizable="true">This table contains the fiscal data of the items. The management of fiscal store is unique and is made in relation to an exercise, 
+	what can coincide or less with the solar year. Slave of the MA_Items table.</Overview>
+  <Fields>
+    <Column Name="FiscalYear" Type="Integer" Length="0" ReadOnly="X" Mandatory="X" Default="X" Enum="" Reference="" localizable="true">It indicates the fiscal year of management.</Column>
+    <Column Name="FiscalPeriod" Type="Integer" Length="0" ReadOnly="X" Mandatory="X" Default="X" Enum="" Reference="" localizable="true">It indicates the fiscal period of management.</Column>
+    <Column Name="Item" Type="String" Length="21" ReadOnly="" Mandatory="X" Default="" Enum="" Reference="Items/MA_Items" localizable="true">Item.</Column>
+    <Column Name="Storage" Type="String" Length="8" ReadOnly="" Mandatory="" Default="" Enum="False" Reference="" localizable="true">Storage.</Column>
+    <Column Name="InventoryValueCriteria" Type="Enum" Length="0" ReadOnly="" Mandatory="X" Default="X" Enum="Inventory/65" Reference="" localizable="true">Valuation type.</Column>
+    <Column Name="NoABCValue" Type="Bool" Length="1" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">It indicates if the item is excluded from the inventory value criteria for the ABC analysis.</Column>
+    <Column Name="SecondLastCost" Type="Money" Length="0" ReadOnly="" Mandatory="" Default="X" Enum="" Reference="" localizable="true">Second last cost.</Column>
+    <Column Name="LastCost" Type="Money" Length="0" ReadOnly="" Mandatory="" Default="X" Enum="" Reference="" localizable="true">Last code.</Column>
+    <Column Name="StandardCost" Type="Money" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Standard cost.</Column>
+    <Column Name="InitialOnHand" Type="Quantity" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">This field value must be the same as that of the final on hand of the previous exercise.
+		The relative control is editable as in the first exercise for law inserting such a value through an initial inventory movement is not 
+		mandatory but inserting it to hand is possible.</Column>
+    <Column Name="FinalOnHand" Type="Quantity" Length="0" ReadOnly="" Mandatory="" Default="X" Enum="" Reference="" localizable="true">Final on hand.</Column>
+    <Column Name="ReservedSaleOrd" Type="Quantity" Length="0" ReadOnly="" Mandatory="" Default="X" Enum="" Reference="" localizable="true">Quantity reserved by sale orders.</Column>
+    <Column Name="OrderedPurchOrd" Type="Quantity" Length="0" ReadOnly="" Mandatory="" Default="X" Enum="" Reference="" localizable="true">Quantity ordered from suppliers.</Column>
+    <Column Name="InitialBookInv" Type="Quantity" Length="0" ReadOnly="" Mandatory="" Default="X" Enum="" Reference="" localizable="true">This field value must be the same as that of the final book inventory value of the previous exercise. The relative control is editable because
+		in the first exercise for law inserting such a value through an initial inventory moviment is not mandatory but inserting it to hand is possible.
+		The creation of the item data master needs to read the value contained in the initial book inventory value.</Column>
+    <Column Name="BookInv" Type="Quantity" Length="0" ReadOnly="" Mandatory="" Default="X" Enum="" Reference="" localizable="true">Book inventory.</Column>
+    <Column Name="InitialBookInvValue" Type="Money" Length="0" ReadOnly="" Mandatory="" Default="X" Enum="" Reference="" localizable="true">Initial book inventory value.</Column>
+    <Column Name="BookInvValue" Type="Money" Length="0" ReadOnly="" Mandatory="" Default="X" Enum="" Reference="" localizable="true">Book inventory value.</Column>
+    <Column Name="PurchasesQty" Type="Quantity" Length="0" ReadOnly="" Mandatory="" Default="X" Enum="" Reference="" localizable="true">Quantity purchased.</Column>
+    <Column Name="PurchasesValue" Type="Money" Length="0" ReadOnly="" Mandatory="" Default="X" Enum="" Reference="" localizable="true">Purchases value.</Column>
+    <Column Name="SalesQty" Type="Quantity" Length="0" ReadOnly="" Mandatory="" Default="X" Enum="" Reference="" localizable="true">Quantity Sold.</Column>
+    <Column Name="SalesValue" Type="Money" Length="0" ReadOnly="" Mandatory="" Default="X" Enum="" Reference="" localizable="true">Sales value.</Column>
+    <Column Name="ScrapQty" Type="Quantity" Length="0" ReadOnly="" Mandatory="" Default="X" Enum="" Reference="" localizable="true">Scrap quantity.</Column>
+    <Column Name="ScrapsValue" Type="Money" Length="0" ReadOnly="" Mandatory="" Default="X" Enum="" Reference="" localizable="true">Scraps value.</Column>
+    <Column Name="ReceivedQty" Type="Quantity" Length="0" ReadOnly="" Mandatory="" Default="X" Enum="" Reference="" localizable="true">Quantity received.</Column>
+    <Column Name="ReceivedValue" Type="Money" Length="0" ReadOnly="" Mandatory="" Default="X" Enum="" Reference="" localizable="true">Received value.</Column>
+    <Column Name="IssuedQty" Type="Quantity" Length="0" ReadOnly="" Mandatory="" Default="X" Enum="" Reference="" localizable="true">Quantity issued.</Column>
+    <Column Name="IssuedValue" Type="Money" Length="0" ReadOnly="" Mandatory="" Default="X" Enum="" Reference="" localizable="true">Issued value.</Column>
+    <Column Name="Subcontracting" Type="Quantity" Length="0" ReadOnly="" Mandatory="" Default="X" Enum="" Reference="" localizable="true">Quantity in subcontracting.</Column>
+    <Column Name="ForSubcontracting" Type="Quantity" Length="0" ReadOnly="" Mandatory="" Default="X" Enum="" Reference="" localizable="true">Quantity for subcontracting.</Column>
+    <Column Name="ReservedByProd" Type="Quantity" Length="0" ReadOnly="" Mandatory="" Default="X" Enum="" Reference="" localizable="true">Quantity reserved by production.</Column>
+    <Column Name="OrderedToProd" Type="Quantity" Length="0" ReadOnly="" Mandatory="" Default="X" Enum="" Reference="" localizable="true">Quantity ordered to production.</Column>
+    <Column Name="SampleGoods" Type="Quantity" Length="0" ReadOnly="" Mandatory="" Default="X" Enum="" Reference="" localizable="true">Sample goods.</Column>
+    <Column Name="ReturnedQty" Type="Quantity" Length="0" ReadOnly="" Mandatory="" Default="X" Enum="" Reference="" localizable="true">Returned quantity.</Column>
+    <Column Name="Sampling" Type="Quantity" Length="0" ReadOnly="" Mandatory="" Default="X" Enum="" Reference="" localizable="true">Sample book.</Column>
+    <Column Name="Bailment" Type="Quantity" Length="0" ReadOnly="" Mandatory="" Default="X" Enum="" Reference="" localizable="true">Bailment goods.</Column>
+    <Column Name="ForRepairing" Type="Quantity" Length="0" ReadOnly="" Mandatory="" Default="X" Enum="" Reference="" localizable="true">Quantity under repair.</Column>
+    <Column Name="UsedByProduction" Type="Quantity" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Quantity used by production.</Column>
+    <Column Name="LastLotNo" Type="Long" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">The last number lot assigned automatically during the insertion of a lot of an item.
+		This number lot is bound to the exercise so that it can have a dfetail about the numbers assigned automatically for exercise.</Column>
+    <Column Name="CustomQty1" Type="Quantity" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Actual quantity of the custom quantity 1.</Column>
+    <Column Name="CustomValue1" Type="Money" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Actual value of the custom quantity 1.</Column>
+    <Column Name="CustomQty2" Type="Quantity" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Actual quantity of the custom quantity 2.</Column>
+    <Column Name="CustomValue2" Type="Money" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Actual value of the custom quantity 2.</Column>
+    <Column Name="CustomQty3" Type="Quantity" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Actual quantity of the custom quantity 3.</Column>
+    <Column Name="CustomValue3" Type="Money" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Actual value of the custom quantity 3.</Column>
+    <Column Name="CustomQty4" Type="Quantity" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Actual quantity of the custom quantity 4.</Column>
+    <Column Name="CustomValue4" Type="Money" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Actual value of the custom quantity 4.</Column>
+    <Column Name="CustomQty5" Type="Quantity" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Actual quantity of the custom quantity 5.</Column>
+    <Column Name="CustomValue5" Type="Money" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Actual value of the custom quantity 5.</Column>
+    <Column Name="InitialCustomQty1" Type="Float" Length="" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Initial quantity of the custom quantity 1.</Column>
+    <Column Name="InitialCustomValue1" Type="float" Length="" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Initial value of the custom quantity 1.</Column>
+    <Column Name="InitialCustomQty2" Type="float" Length="" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Initial quantity of the custom quantity 2.</Column>
+    <Column Name="InitialCustomValue2" Type="float" Length="" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Initial value of the custom quantity 2.</Column>
+    <Column Name="InitialCustomQty3" Type="float" Length="" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Initial quantity of the custom quantity 3.</Column>
+    <Column Name="InitialCustomValue3" Type="float" Length="" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Initial value of the custom quantity 3.</Column>
+    <Column Name="InitialCustomQty4" Type="float" Length="" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Initial quantity of the custom quantity 4.</Column>
+    <Column Name="InitialCustomValue4" Type="float" Length="" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Initial value of the custom quantity 4.</Column>
+    <Column Name="InitialCustomQty5" Type="float" Length="" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Initial quantity of the custom quantity 5.</Column>
+    <Column Name="InitialCustomValue5" Type="float" Length="" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Initial value of the custom quantity 5.</Column>
+    <Column Name="InitialOnHandStorageTot" Type="Quantity" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Field for internal use.</Column>
+    <Column Name="InitialReservedStorageTot" Type="Quantity" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Field for internal use.</Column>
+    <Column Name="OnHandStorageTot" Type="Quantity" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Field for internal use.</Column>
+    <Column Name="ReservedStorageTot" Type="Quantity" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Field for internal use.</Column>
+    <Column Name="InitialReservedCustQuota" Type="Quantity" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Field for internal use.</Column>
+    <Column Name="ReservedCustQuota" Type="Quantity" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Field for internal use.</Column>
+    <Column Name="InitialSubcontracting" Type="Quantity" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Initial quantity in subcontracting.</Column>
+    <Column Name="InitialForSubcontracting" Type="Quantity" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Initial quantity for subcontracting.</Column>
+    <Column Name="InitialSampleGoods" Type="Quantity" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Initial sample goods.</Column>
+    <Column Name="InitialReturnedQty" Type="Quantity" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Initial returned quantity.</Column>
+    <Column Name="InitialSampling" Type="Quantity" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Initial sample book.</Column>
+    <Column Name="InitialBailment" Type="Quantity" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Initial bailment goods.</Column>
+    <Column Name="InitialForRepairing" Type="Quantity" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Initial quantity under repair.</Column>
+    <Column Name="InitialUsedByProduction" Type="Quantity" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Initial quantity used by production.</Column>
+    <Column Name="ProducedQty" Type="Quantity" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Produced quantity.</Column>
+    <Column Name="ProducedValue" Type="Money" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Produced value.</Column>
+    <Column Name="ApprovedPurchaseReq" Type="Quantity" Length="0" ReadOnly="" Mandatory="" Default="" Enum="" Reference="" localizable="true">Field for internal use.</Column>
+    <Column Name="ValueType" Type="Enum" Length="0" ReadOnly="" Mandatory="X" Default="X" Enum="Company/172" Reference="" localizable="true">Valuation type.</Column>
+    <Column Name="CIGValue" Type="float" Length="" ReadOnly="" Mandatory="" Default="X" Enum="" Reference="" localizable="true">Value of cost of issued goods.</Column>
+    <Column Name="UsedInProductionValue" Type="Float" Length="" ReadOnly="" Mandatory="" Default="X" Enum="" Reference="" localizable="true">Value of quantity used in production.</Column>
+    <Column Name="PickingValue" Type="Float" Length="" ReadOnly="" Mandatory="" Default="X" Enum="" Reference="" localizable="true">Picking value.</Column>
+    <Column Name="OrderedToProdIE" Type="Quantity" Length="0" ReadOnly="" Mandatory="" Default="X" Enum="" Reference="" localizable="true">Ordered to production from inventory entries.</Column>
+    <Column Name="InitialUsedInProductionValue" Type="Money" Length="0" ReadOnly="" Mandatory="" Default="X" Enum="" Reference="" localizable="true">Value of initial quantity used in production.</Column>
+    <Column Name="PickedQty" Type="Quantity" Length="0" ReadOnly="" Mandatory="" Default="X" Enum="" Reference="" localizable="true">Quantity picked.</Column>
+    <Column Name="AllocatedQty" Type="Float" Length="" ReadOnly="" Mandatory="" Default="X" Enum="" Reference="" localizable="true">Quantity allocated.</Column>
+  </Fields>
+  <Keys>
+    <Key Name="PK_ItemsFiscalData" Type="Primary">
+      <Column Name="FiscalYear" localizable="true" />
+      <Column Name="FiscalPeriod" localizable="true" />
+      <Column Name="Item" localizable="true" />
+    </Key>
+  </Keys>
+  <Remarks localizable="true">Nothing to remark.</Remarks>
+</Table>
