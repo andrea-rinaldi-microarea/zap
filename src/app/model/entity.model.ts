@@ -2,6 +2,7 @@ import { Column } from './column.model';
 export class Entity {
     constructor(public name: string) {}
 
+    tableName: string = "";
     columns: Column[] = [];
 
     getColumn(name: string) : Column {

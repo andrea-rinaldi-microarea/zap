@@ -75,6 +75,9 @@ export class EntitiesService {
           return;
         }
         console.log(result);
+        
+        entity.tableName = result.Table.$.Name;
+
         for (let col of result.Table.Fields[0].Column) {
           var column = new Column(
             col.$.Name,

@@ -9,6 +9,7 @@ import { Rule, Copy, Fixed } from '../model/rule.model';
 import { Xml } from '../utils/xml';
 import { Fs, Path } from '../utils/node';
 import { MessagesService } from '../services/messages.service';
+import { EntitiesService } from '../services/entities.service';
 
 @Component({
   selector: 'zap-convert',
@@ -22,7 +23,8 @@ export class ConvertComponent implements OnInit {
     private projectService: ProjectService, 
     private electronService: ElectronService,
     private inputStreamService: InputStreamService,
-    private messagesService: MessagesService
+    private messagesService: MessagesService,
+    private entitiesService: EntitiesService
   ) { }
 
   ngOnInit() {
@@ -67,6 +69,7 @@ export class ConvertComponent implements OnInit {
           );
           return;
         }
+        var tableName = this.entitiesService.get(job.targetEntityName).tableName;
         for (let row of content.data) {
           if  (
                 job.stream.whereColumn && job.stream.whereColumn != -1 &&
@@ -80,7 +83,8 @@ export class ConvertComponent implements OnInit {
             let rule: Rule = (mapping.rule == "Copy") ? new Copy() :  new Fixed(mapping.fixedValue);
             attributes[mapping.targetColumn.name] = rule.apply(mapping.sourceColumn >= 0 ? row[mapping.sourceColumn] : "", mapping.targetColumn);
           }
-          record[job.targetEntityName] = { _attr: attributes };
+           
+          record[tableName] = { _attr: attributes };
           output.DataTables.push(record);
         }
         var strOut = Xml.unparse(output, {declaration: { standalone: 'yes', encoding: 'UTF-8' }, indent: true});
